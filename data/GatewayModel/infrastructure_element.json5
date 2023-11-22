@@ -1,0 +1,1119 @@
+{
+  title: 'infrastructure_element',
+  idFieldName: 'global_id',
+  description: 'InfrastructureElement',
+  type: 'object',
+  properties: {
+    global_id: {
+      type: 'string',
+      description: 'A globally unique identifier for the entity represented by the object',
+      displayName: 'Global Id',
+      tags: [
+        'BDM_SCOPE',
+        'INDEX',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: 'global_id',
+        },
+        smax: {
+          fieldMapping: 'GlobalId',
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: 'Global ID',
+          name: 'GlobalId',
+          originalType: 'SMALL_TEXT',
+        },
+      },
+    },
+    Id: {
+      type: 'string',
+      description: 'Id',
+      dataSource: 'smax',
+      displayName: 'Id',
+      originalType: 'SMALL_TEXT',
+    },
+    bitmap_id: {
+      type: 'integer',
+      description: 'Bitmap ID',
+      displayName: 'Bitmap ID',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+        'INDEX',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: 'bitmap_id',
+        },
+        smax: {
+          fieldMapping: 'BitmapId',
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: 'Bitmap Id',
+          name: 'BitmapId',
+          originalType: 'INTEGER',
+        },
+      },
+    },
+    bit_position: {
+      type: 'integer',
+      description: 'Bit Position',
+      displayName: 'Bit Position',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: 'bit_position',
+        },
+        smax: {
+          fieldMapping: 'BitPosition',
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: 'Bit Position',
+          name: 'BitPosition',
+          originalType: 'INTEGER',
+        },
+      },
+    },
+    sd_type: {
+      type: 'string',
+      description: 'SD Type',
+      displayName: 'SD Type',
+      tags: [
+        'INDEX',
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: 'sd_type',
+        },
+        smax: {
+          fieldMapping: 'SubType',
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: 'Subtype',
+          name: 'SubType',
+          originalType: 'ENUM',
+        },
+      },
+    },
+    country: {
+      type: 'string',
+      description: 'Country or province location',
+      displayName: 'Country or Province',
+      tags: [
+        'HANDLED_ATTRIBUTE',
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    language: {
+      type: 'string',
+      description: 'System suported language',
+      displayName: 'Language',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    display_label: {
+      type: 'string',
+      description: 'Used as calc attribute for display',
+      displayName: 'Display Label',
+      tags: [
+        'BDM_SCOPE',
+        'DASH_ATTRIBUTE',
+        'ASSET',
+        'INDEX',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+        'CALCULATED_ATTRIBUTE',
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: 'display_label',
+        },
+        smax: {
+          fieldMapping: 'DisplayLabel',
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: 'Display label',
+          name: 'DisplayLabel',
+          originalType: 'SMALL_TEXT',
+        },
+      },
+    },
+    data_operationstate: {
+      type: 'string',
+      description: 'Operation State',
+      displayName: 'Operation State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    data_origin: {
+      type: 'string',
+      description: 'Origin',
+      displayName: 'Origin',
+      tags: [
+        'BLE_ATTRIBUTE',
+        'DASH_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    root_actualdeletetime: {
+      type: 'date',
+      description: 'When will this CI be deleted',
+      displayName: 'Actual Delete Time',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'INDEX',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    data_teststate: {
+      type: 'string',
+      description: 'Test State',
+      displayName: 'Test State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    root_container: {
+      type: 'string',
+      description: 'Container CI of this CI',
+      displayName: 'Container',
+      tags: [
+        'APPLICATIVE_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    state: {
+      type: 'string',
+      description: 'State location',
+      displayName: 'State',
+      tags: [
+        'HANDLED_ATTRIBUTE',
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    data_externalid: {
+      type: 'string',
+      description: 'external source id: snmp index, data sources index etc.',
+      displayName: 'External ID',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    create_time: {
+      type: 'date',
+      description: 'When was this CI created',
+      displayName: 'Created Time',
+      tags: [
+        'BDM_SCOPE',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    data_operationcorrstate: {
+      type: 'string',
+      description: 'Operation State',
+      displayName: 'Operation Corr State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    root_lastaccesstime: {
+      type: 'date',
+      description: 'When was this CI last accessed',
+      displayName: 'Last Access Time',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    codepage: {
+      type: 'string',
+      description: 'System suported CodePage',
+      displayName: 'CodePage',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    root_iscandidatefordeletion: {
+      type: 'boolean',
+      description: 'Is candidate for deletion',
+      displayName: 'Is Candidate For Deletion',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    data_source: {
+      type: 'string',
+      description: 'Created By',
+      displayName: 'Created By',
+      tags: [
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    last_discovered_by: {
+      type: 'string',
+      description: 'Who discovered this CI',
+      displayName: 'LastDiscoveredBy',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'SUPPRESS_LAST_MODIFIED_TIME',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    data_testcorrstate: {
+      type: 'string',
+      description: 'Test State',
+      displayName: 'Test Corr State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    credentials_id: {
+      type: 'string',
+      description: 'Reference to the credentials dictinary entry',
+      displayName: 'Reference to the credentials dictionary entry',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    calculated_id: {
+      type: 'string',
+      description: 'Calculated ID',
+      displayName: 'Calculated ID',
+      tags: [
+        'APPLICATIVE_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+        'INDEX',
+      ],
+    },
+    data_note: {
+      type: 'string',
+      description: 'Note',
+      displayName: 'Note',
+    },
+    name: {
+      type: 'string',
+      description: 'Name',
+      displayName: 'Name',
+      tags: [
+        'BDM_SCOPE',
+        'DASH_ATTRIBUTE',
+        'INDEX',
+      ],
+    },
+    ack_id: {
+      type: 'string',
+      description: 'ack_id',
+      displayName: 'ack_id',
+      tags: [
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    root_candidatefordeletetime: {
+      type: 'date',
+      description: 'When will this CI be warned about deleting',
+      displayName: 'Candidate For Deletion Time',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    document_list: {
+      type: 'string',
+      description: 'Documents',
+      displayName: 'Documents',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+        'LIST',
+      ],
+    },
+    data_adminstate: {
+      type: 'string',
+      description: 'Admin State',
+      displayName: 'Admin State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    root_enableageing: {
+      type: 'boolean',
+      description: 'Is aging enabled',
+      displayName: 'Enable Aging',
+    },
+    data_updated_by: {
+      type: 'string',
+      description: 'LastModifiedBy',
+      displayName: 'LastModifiedBy',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    data_operationisnew: {
+      type: 'boolean',
+      description: 'Operation State',
+      displayName: 'Operation Is New',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    city: {
+      type: 'string',
+      description: 'City location',
+      displayName: 'City',
+      tags: [
+        'HANDLED_ATTRIBUTE',
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    description: {
+      type: 'string',
+      description: 'Description',
+      displayName: 'Description',
+      tags: [
+        'BDM_SCOPE',
+      ],
+    },
+    root_class: {
+      type: 'string',
+      description: 'Class name of the CI',
+      displayName: 'CI Type',
+      tags: [
+        'APPLICATIVE_ATTRIBUTE',
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'INDEX',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    last_discovered_by_probe: {
+      type: 'string',
+      description: 'Which probe discovered this CI',
+      displayName: 'LastDiscoveredByProbe',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'SUPPRESS_LAST_MODIFIED_TIME',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    ack_cleared_time: {
+      type: 'bigint',
+      description: 'ack_cleared_time',
+      displayName: 'ack_cleared_time',
+      tags: [
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    data_allow_auto_discovery: {
+      type: 'boolean',
+      description: 'Allow CI Update',
+      displayName: 'Allow CI Update',
+      tags: [
+        'DASH_ATTRIBUTE',
+      ],
+    },
+    last_discovered_time: {
+      type: 'date',
+      description: 'When was this CI discovered',
+      displayName: 'LastDiscoveredTime',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'SUPPRESS_LAST_MODIFIED_TIME',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    digest: {
+      type: 'string',
+      description: 'Digest',
+      displayName: 'Digest',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    root_system: {
+      type: 'string',
+      description: 'System',
+      displayName: 'System',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    data_changecorrstate: {
+      type: 'string',
+      description: 'Change State',
+      displayName: 'Change Corr State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    root_iconproperties: {
+      type: 'string',
+      description: 'root_iconproperties',
+      displayName: 'root_iconproperties',
+      tags: [
+        'APPLICATIVE_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+        'INTERNAL_ATTRIBUTE',
+      ],
+    },
+    last_modified_time: {
+      type: 'date',
+      description: 'When was this CI last updated',
+      displayName: 'LastModifiedTime',
+      tags: [
+        'BDM_SCOPE',
+        'NOT_CHANGE_MONITORED',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    data_changestate: {
+      type: 'string',
+      description: 'Change State',
+      displayName: 'Change State',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    user_label: {
+      type: 'string',
+      description: 'Used as user label',
+      displayName: 'User Label',
+    },
+    contextmenu: {
+      type: 'array',
+      description: 'Context menu',
+      displayName: 'Context Menu',
+      items: {
+        type: 'string',
+      },
+      tags: [
+        'HANDLED_ATTRIBUTE',
+        'NOT_CHANGE_MONITORED',
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+        'LIST',
+      ],
+    },
+    data_testisnew: {
+      type: 'boolean',
+      description: 'Test State',
+      displayName: 'Test Is New',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    data_changeisnew: {
+      type: 'boolean',
+      description: 'Change State',
+      displayName: 'Change Is New',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'DEPRECATION',
+      ],
+    },
+    track_changes: {
+      type: 'boolean',
+      description: 'Track configuration changes',
+      displayName: 'Track Configuration Changes',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    is_save_persistency: {
+      type: 'boolean',
+      description: 'Store KPI history for over time reports',
+      displayName: 'Store KPI History For Over Time Reports',
+      tags: [
+        'BLE_ATTRIBUTE',
+        'DASH_ATTRIBUTE',
+        'HIDDEN_ATTRIBUTE',
+      ],
+    },
+    product_name: {
+      type: 'string',
+      description: 'Country or Province',
+    },
+    discovered_product_name: {
+      type: 'string',
+      description: 'Country or Province',
+    },
+    CalculatedFields: {
+      type: 'string',
+      description: 'CalculatedFields',
+      dataSource: 'smax',
+      displayName: 'Calculated fields',
+      originalType: 'COMPLEX_TYPE',
+    },
+    DiscoveredChange: {
+      type: 'string',
+      description: 'DiscoveredChange',
+      dataSource: 'smax',
+      displayName: 'Discovered Change',
+      originalType: 'LARGE_TEXT',
+    },
+    ExplicitStakeholders: {
+      type: 'string',
+      description: 'ExplicitStakeholders',
+      dataSource: 'smax',
+      displayName: 'Explicit Stakeholders',
+      originalType: 'SMALL_TEXT',
+    },
+    SupportLevel2Group: {
+      type: 'object',
+      description: 'SupportLevel2Group',
+      reference: 'PersonGroup',
+      dataSource: 'smax',
+      displayName: '2nd level support',
+    },
+    EmsCreationTime: {
+      type: 'date',
+      description: 'EmsCreationTime',
+      dataSource: 'smax',
+      displayName: 'Creation Time',
+      originalType: 'DATE_TIME',
+    },
+    OwnedByPerson: {
+      type: 'object',
+      description: 'OwnedByPerson',
+      reference: 'Person',
+      dataSource: 'smax',
+      displayName: 'Owner',
+    },
+    LastUpdateTime: {
+      type: 'date',
+      description: 'LastUpdateTime',
+      dataSource: 'smax',
+      displayName: 'Last Update Time',
+      originalType: 'DATE_TIME',
+    },
+    SystemElementAttachments: {
+      type: 'string',
+      description: 'SystemElementAttachments',
+      dataSource: 'smax',
+      displayName: 'Attachments',
+      originalType: 'COMPLEX_TYPE',
+    },
+    PhaseId: {
+      type: 'string',
+      description: 'PhaseId',
+      dataSource: 'smax',
+      displayName: 'Phase Id',
+      originalType: 'SMALL_TEXT',
+    },
+    DataDomains: {
+      type: 'array',
+      items: {
+        type: 'string',
+      },
+      description: 'Data Domains (Ucmdb Consumer Tenants)',
+      dataSource: {
+        ucmdb: {
+          fieldMapping: 'TenantsUses',
+        },
+        smax: {
+          fieldMapping: 'DataDomains',
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: 'Data domains',
+          name: 'DataDomains',
+          originalType: 'ENUM_SET',
+        },
+      },
+    },
+    IsDeleted: {
+      type: 'boolean',
+      description: 'IsDeleted',
+      dataSource: 'smax',
+      displayName: 'Is Deleted',
+      originalType: 'BOOLEAN',
+    },
+    CalculatedTmpFields: {
+      type: 'string',
+      description: 'CalculatedTmpFields',
+      dataSource: 'smax',
+      displayName: 'Calculated temporary fields',
+      originalType: 'COMPLEX_TYPE',
+    },
+    SupportLevel3Group: {
+      type: 'object',
+      description: 'SupportLevel3Group',
+      reference: 'PersonGroup',
+      dataSource: 'smax',
+      displayName: '3rd level support',
+    },
+    Comments: {
+      type: 'string',
+      description: 'Comments',
+      dataSource: 'smax',
+      displayName: 'Comments',
+      originalType: 'COMPLEX_TYPE',
+    },
+    NumberOfRelatedRecords: {
+      type: 'integer',
+      description: 'NumberOfRelatedRecords',
+      dataSource: 'smax',
+      displayName: 'Number of related records',
+      originalType: 'INTEGER',
+    },
+    ClusterType: {
+      type: 'string',
+      description: 'ClusterType',
+      dataSource: 'smax',
+      displayName: 'Cluster',
+      originalType: 'ENUM',
+    },
+    Missing: {
+      type: 'boolean',
+      description: 'Missing',
+      dataSource: 'smax',
+      displayName: 'Missing',
+      originalType: 'BOOLEAN',
+    },
+    AssetTag: {
+      type: 'string',
+      description: 'AssetTag',
+      dataSource: 'smax',
+      displayName: 'Asset tag',
+      originalType: 'SMALL_TEXT',
+    },
+    AllStakeholders: {
+      type: 'string',
+      description: 'AllStakeholders',
+      dataSource: 'smax',
+      displayName: 'All Stakeholders',
+      originalType: 'SMALL_TEXT',
+    },
+    Lifetime: {
+      type: 'integer',
+      description: 'Lifetime',
+      dataSource: 'smax',
+      displayName: 'Lifetime',
+      originalType: 'INTEGER',
+    },
+    Expire: {
+      type: 'integer',
+      description: 'Expire',
+      dataSource: 'smax',
+      displayName: 'Expire',
+      originalType: 'INTEGER',
+    },
+    DeployedAtLocation: {
+      type: 'object',
+      description: 'DeployedAtLocation',
+      reference: 'Location',
+      dataSource: 'smax',
+      displayName: 'Deployed at Location',
+    },
+    Environment: {
+      type: 'string',
+      description: 'Environment',
+      dataSource: 'smax',
+      displayName: 'Environment',
+      originalType: 'ENUM',
+    },
+    ProcessId: {
+      type: 'string',
+      description: 'ProcessId',
+      dataSource: 'smax',
+      displayName: 'Process Id',
+      originalType: 'SMALL_TEXT',
+    },
+    Managed: {
+      type: 'boolean',
+      description: 'Managed',
+      dataSource: 'smax',
+      displayName: 'Managed externally',
+      originalType: 'BOOLEAN',
+    },
+    SupportLevel1Group: {
+      type: 'object',
+      description: 'SupportLevel1Group',
+      reference: 'PersonGroup',
+      dataSource: 'smax',
+      displayName: '1st level support',
+    },
+    Name: {
+      type: 'string',
+      description: 'Name',
+      dataSource: 'smax',
+      displayName: 'Name',
+      originalType: 'SMALL_TEXT',
+    },
+    Version: {
+      type: 'string',
+      description: 'Version',
+      dataSource: 'smax',
+      displayName: 'Version',
+      originalType: 'SMALL_TEXT',
+    },
+    ServiceComponentContainsSystemElement: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'business_application',
+      },
+      description: 'ServiceComponentContainsSystemElement',
+      dataSource: 'smax',
+    },
+    SystemElementAffectedByIncident: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'Incident',
+      },
+      description: 'SystemElementAffectedByIncident',
+      dataSource: 'smax',
+    },
+    SystemElementAffectedByChange: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'Change',
+      },
+      description: 'SystemElementAffectedByChange',
+      dataSource: 'smax',
+    },
+    SystemElementAffectedByRequest: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'Request',
+      },
+      description: 'SystemElementAffectedByRequest',
+      dataSource: 'smax',
+    },
+    SystemElementAffectedByProblem: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'Problem',
+      },
+      description: 'SystemElementAffectedByProblem',
+      dataSource: 'smax',
+    },
+    SystemElementContainsDevice: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'node',
+      },
+      description: 'SystemElementContainsDevice',
+      dataSource: 'smax',
+    },
+    TPDAppliesToSystemElement: {
+      type: 'array',
+      items: {
+        type: 'object',
+        reference: 'TimePeriodDefinition',
+      },
+      description: 'TPDAppliesToSystemElement',
+      dataSource: 'smax',
+    },
+    Description: {
+      type: 'string',
+      description: 'Description',
+      dataSource: 'smax',
+      displayName: 'Description',
+      originalType: 'RICH_TEXT',
+    },
+    cmdb_id: {
+      type: 'string',
+      description: 'cmdb id',
+    },
+    ChangeInvolvedSystemElement: {
+      type: 'array',
+      description: 'ChangeInvolvedSystemElement',
+      items: {
+        reference: 'Change',
+        type: 'object',
+      },
+      dataSource: 'smax',
+    },
+    RequestAffectsSystemElement: {
+      type: 'array',
+      description: 'RequestAffectsSystemElement',
+      items: {
+        reference: 'Request',
+        type: 'object',
+      },
+      dataSource: 'smax',
+    },
+    ProblemAffectsSystemElement: {
+      type: 'array',
+      description: 'ProblemAffectsSystemElement',
+      items: {
+        reference: 'Problem',
+        type: 'object',
+      },
+      dataSource: 'smax',
+    },
+    IncidentAffectsSystemElement: {
+      type: 'array',
+      description: 'IncidentAffectsSystemElement',
+      items: {
+        reference: 'Incident',
+        type: 'object',
+      },
+      dataSource: 'smax',
+    },
+    SystemElementSupportLevel1Group: {
+      type: 'object',
+      description: 'SystemElementSupportLevel1Group',
+      reference: 'PersonGroup',
+      dataSource: 'smax',
+    },
+    SystemElementSupportLevel3Group: {
+      type: 'object',
+      description: 'SystemElementSupportLevel3Group',
+      reference: 'PersonGroup',
+      dataSource: 'smax',
+    },
+    SystemElementOwnedByPerson: {
+      type: 'object',
+      description: 'SystemElementOwnedByPerson',
+      reference: 'Person',
+      dataSource: 'smax',
+    },
+    SystemElementLocation: {
+      type: 'object',
+      description: 'SystemElementLocation',
+      reference: 'Location',
+      dataSource: 'smax',
+    },
+    SystemElementSupportLevel2Group: {
+      type: 'object',
+      description: 'SystemElementSupportLevel2Group',
+      reference: 'PersonGroup',
+      dataSource: 'smax',
+    },
+    data_tags: {
+      type: 'json',
+      description: 'A tag is a label assigned to a resource.Each tag consists of a key and a value.',
+      displayName: 'Tags',
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'JSON',
+        'INDEX',
+      ],
+    },
+    UUID: {
+      type: 'string',
+      description: 'UUID',
+      dataSource: 'smax',
+      displayName: 'UUID',
+      originalType: 'SMALL_TEXT',
+    },
+    TenantsUses: {
+      type: 'array',
+      description: 'The IDs of the Tenants who are associated with the CI',
+      displayName: 'Consumer Tenants',
+      items: {
+        type: 'string',
+      },
+    },
+    TenantOwner: {
+      type: 'string',
+      description: 'The Tenant Owner ID',
+      displayName: 'Owner Tenant',
+      tags: [
+        'DDM_NO_VALIDATION',
+      ],
+    },
+    zone_list: {
+      type: 'array',
+      description: 'List of management zones in which the CI is discovered',
+      displayName: 'Zone List',
+      items: {
+        type: 'string',
+      },
+      tags: [
+        'NOT_CHANGE_MONITORED',
+        'SIMPLE_FAST_LIST',
+        'INDEX',
+        'SUPPRESS_LAST_MODIFIED_TIME',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    discovery_state: {
+      type: 'string',
+      description: 'State of UD discovery',
+      displayName: 'Discovery State',
+      tags: [
+        'HIDDEN_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    metaphase: {
+      type: 'string',
+      description: 'Meta Phase of a CI in SMAX. The attribute is owned by SMAX exclusively',
+      displayName: 'Meta Phase',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+        'CMS_SEARCHABLE_ATTRIBUTE',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    monitor_state: {
+      type: 'string',
+      description: 'Monitor State of a CI in OpsB. The attribute is owned by OpsB exclusively.',
+      displayName: 'Monitor State',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+        'CMS_SEARCHABLE_ATTRIBUTE',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    provision_state: {
+      type: 'string',
+      description: 'Provision State of a CI in HCMX. The attribute is owned by HCMX exclusively.',
+      displayName: 'Provision State',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+        'CMS_SEARCHABLE_ATTRIBUTE',
+        'CMS_CI_PROPERTIES_LAYOUT',
+        'READ_ONLY_ATTRIBUTE',
+      ],
+    },
+    ci_lifecycle_state: {
+      type: 'string',
+      description: 'The attribute indicates the overall Lifecycle state of a CI when using enhanced lifecycle solution',
+      displayName: 'CI Lifecycle State',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+        'CMS_SEARCHABLE_ATTRIBUTE',
+        'READ_ONLY_ATTRIBUTE',
+        'CALCULATED_LIFECYCLE',
+      ],
+    },
+    regulatory_details: {
+      type: 'string',
+      description: '[Summary]This attribute is used by DCA, it represents the regulatory details. [Collection]The value is pushed by DCA via CMSGateway',
+      displayName: 'Regulatory Details',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+      ],
+    },
+    regulatory_status: {
+      type: 'string',
+      description: '[Summary]This attribute is used by DCA, it represents the regulatory status. [Collection]The value is pushed by DCA via CMSGateway',
+      displayName: 'Regulatory Status',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+      ],
+    },
+    vulnerability_details: {
+      type: 'string',
+      description: '[Summary]This attribute is used by DCA, it represents the vulnerability details. [Collection]The value is pushed by DCA via CMSGateway',
+      displayName: 'Vulnerability Details',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+      ],
+    },
+    vulnerability_status: {
+      type: 'string',
+      description: '[Summary]This attribute is used by DCA, it represents the vulnerability status. [Collection]The value is pushed by DCA via CMSGateway',
+      displayName: 'Vulnerability Status',
+      tags: [
+        'CMS_PROPERTIES_ATTRIBUTE',
+      ],
+    },
+    NativeSACMContext: {
+      type: 'string',
+      description: 'NativeSACMContext',
+      messageResourceKey: 'SystemElement.Property.NativeSACMContext',
+      originalType: 'LARGE_TEXT',
+      dataSource: 'smax',
+    },
+	classification: {
+      type: "string",
+      description: "classification",
+      displayName: "classification",
+    },
+	layer: {
+      type: "string",
+      description: "layer",
+      displayName: "layer",
+    },
+  },
+  defaultDataSource: 'ucmdb',
+  dataSources: {
+    ucmdb: {
+      mappingType: 'infrastructure_element',
+    },
+    smax: {
+      mappingType: 'SystemElement',
+    },
+  },
+  interfaces: [
+    'CI',
+  ],
+  tags: [
+    'ABSTRACT_CLASS',
+    'BDM_SCOPE',
+  ],
+}

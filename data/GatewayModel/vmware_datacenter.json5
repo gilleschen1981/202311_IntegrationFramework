@@ -1,0 +1,769 @@
+{
+  title: "vmware_datacenter",
+  idFieldName: "global_id",
+  description: "VMware Datacenter",
+  type: "object",
+  properties: {
+    global_id: {
+      type: "string",
+      description: "A globally unique identifier for the entity represented by the object",
+      displayName: "Global Id",
+      tags: [
+        "BDM_SCOPE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    ack_cleared_time: {
+      type: "bigint",
+      description: "ack_cleared_time",
+      displayName: "ack_cleared_time",
+      tags: [
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_actualdeletetime: {
+      type: "date",
+      description: "When will this CI be deleted",
+      displayName: "Actual Delete Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_adminstate: {
+      type: "string",
+      description: "Admin State",
+      displayName: "Admin State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_allow_auto_discovery: {
+      type: "boolean",
+      description: "Allow CI Update",
+      displayName: "Allow CI Update",
+      tags: [
+        "DASH_ATTRIBUTE",
+      ],
+    },
+    bit_position: {
+      type: "integer",
+      description: "Bit Position",
+      displayName: "Bit Position",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    bitmap_id: {
+      type: "integer",
+      description: "Bitmap ID",
+      displayName: "Bitmap ID",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    calculated_id: {
+      type: "string",
+      description: "Calculated ID",
+      displayName: "Calculated ID",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+      ],
+    },
+    root_candidatefordeletetime: {
+      type: "date",
+      description: "When will this CI be warned about deleting",
+      displayName: "Candidate For Deletion Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_changecorrstate: {
+      type: "string",
+      description: "Change State",
+      displayName: "Change Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_changeisnew: {
+      type: "boolean",
+      description: "Change State",
+      displayName: "Change Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_changestate: {
+      type: "string",
+      description: "Change State",
+      displayName: "Change State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    root_class: {
+      type: "string",
+      description: "Class name of the CI",
+      displayName: "CI Type",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    city: {
+      type: "string",
+      description: "City location",
+      displayName: "City",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    codepage: {
+      type: "string",
+      description: "System suported CodePage",
+      displayName: "CodePage",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_container: {
+      type: "string",
+      description: "Container CI of this CI",
+      displayName: "Container",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    contextmenu: {
+      type: "array",
+      description: "Context menu",
+      displayName: "Context Menu",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "NOT_CHANGE_MONITORED",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "LIST",
+      ],
+    },
+    country: {
+      type: "string",
+      description: "Country or province location",
+      displayName: "Country or Province",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_source: {
+      type: "string",
+      description: "Created By",
+      displayName: "Created By",
+      tags: [
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    create_time: {
+      type: "date",
+      description: "When was this CI created",
+      displayName: "Created Time",
+      tags: [
+        "BDM_SCOPE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    description: {
+      type: "string",
+      description: "Description",
+      displayName: "Description",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    digest: {
+      type: "string",
+      description: "Digest",
+      displayName: "Digest",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    display_label: {
+      type: "string",
+      description: "Used as calc attribute for display",
+      displayName: "Display Label",
+      tags: [
+        "BDM_SCOPE",
+        "DASH_ATTRIBUTE",
+        "ASSET",
+        "INDEX",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+        "CALCULATED_ATTRIBUTE",
+      ],
+    },
+    document_list: {
+      type: "string",
+      description: "Documents",
+      displayName: "Documents",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "LIST",
+      ],
+    },
+    root_enableageing: {
+      type: "boolean",
+      description: "Is aging enabled",
+      displayName: "Enable Aging",
+    },
+    data_externalid: {
+      type: "string",
+      description: "external source id: snmp index, data sources index etc.",
+      displayName: "External ID",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    ack_id: {
+      type: "string",
+      description: "ack_id",
+      displayName: "ack_id",
+      tags: [
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_iscandidatefordeletion: {
+      type: "boolean",
+      description: "Is candidate for deletion",
+      displayName: "Is Candidate For Deletion",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    language: {
+      type: "string",
+      description: "System suported language",
+      displayName: "Language",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_lastaccesstime: {
+      type: "date",
+      description: "When was this CI last accessed",
+      displayName: "Last Access Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_by: {
+      type: "string",
+      description: "Who discovered this CI",
+      displayName: "LastDiscoveredBy",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_by_probe: {
+      type: "string",
+      description: "Which probe discovered this CI",
+      displayName: "LastDiscoveredByProbe",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_time: {
+      type: "date",
+      description: "When was this CI discovered",
+      displayName: "LastDiscoveredTime",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_updated_by: {
+      type: "string",
+      description: "LastModifiedBy",
+      displayName: "LastModifiedBy",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_modified_time: {
+      type: "date",
+      description: "When was this CI last updated",
+      displayName: "LastModifiedTime",
+      tags: [
+        "BDM_SCOPE",
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    vmware_moref: {
+      type: "string",
+      description: "VMware Managed Object Reference (MORef) of the Datacenter",
+      displayName: "ManagedObjectReference",
+    },
+    name: {
+      type: "string",
+      description: "Name",
+      displayName: "Name",
+      tags: [
+        "BDM_SCOPE",
+        "DASH_ATTRIBUTE",
+        "INDEX",
+      ],
+    },
+    data_note: {
+      type: "string",
+      description: "Note",
+      displayName: "Note",
+    },
+    data_operationcorrstate: {
+      type: "string",
+      description: "Operation State",
+      displayName: "Operation Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_operationisnew: {
+      type: "boolean",
+      description: "Operation State",
+      displayName: "Operation Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_operationstate: {
+      type: "string",
+      description: "Operation State",
+      displayName: "Operation State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_origin: {
+      type: "string",
+      description: "Origin",
+      displayName: "Origin",
+      tags: [
+        "BLE_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    credentials_id: {
+      type: "string",
+      description: "Reference to the credentials dictinary entry",
+      displayName: "Reference to the credentials dictionary entry",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_iconproperties: {
+      type: "string",
+      description: "root_iconproperties",
+      displayName: "root_iconproperties",
+    },
+    sd_type: {
+      type: "string",
+      description: "SD Type",
+      displayName: "SD Type",
+      tags: [
+        "INDEX",
+      ],
+    },
+    state: {
+      type: "string",
+      description: "State location",
+      displayName: "State",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    datacenter_status: {
+      type: "string",
+      description: "Status of this Datacenter",
+      displayName: "Status",
+      tags: [
+        "CMS_CI_PROPERTIES_LAYOUT",
+      ],
+    },
+    is_save_persistency: {
+      type: "boolean",
+      description: "Store KPI history for over time reports",
+      displayName: "Store KPI History For Over Time Reports",
+      tags: [
+        "BLE_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_system: {
+      type: "string",
+      description: "System",
+      displayName: "System",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_testcorrstate: {
+      type: "string",
+      description: "Test State",
+      displayName: "Test Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_testisnew: {
+      type: "boolean",
+      description: "Test State",
+      displayName: "Test Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_teststate: {
+      type: "string",
+      description: "Test State",
+      displayName: "Test State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    track_changes: {
+      type: "boolean",
+      description: "Track configuration changes",
+      displayName: "Track Configuration Changes",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    user_label: {
+      type: "string",
+      description: "Used as user label",
+      displayName: "User Label",
+    },
+    vcenter_ip: {
+      type: "string",
+      description: "vCenter Server IP address",
+      displayName: "vCenter IP",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+      ],
+    },
+    vendor: {
+      type: "string",
+      description: "The vendor/manufacturer name ofa software, host, or element",
+      displayName: "Vendor",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+    },
+    cmdb_id: {
+      type: "string",
+      description: "cmdb id",
+    },
+    data_tags: {
+      type: "json",
+      description: "A tag is a label assigned to a resource.Each tag consists of a key and a value.",
+      displayName: "Tags",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "JSON",
+        "INDEX",
+      ],
+    },
+    vmware_resource_id: {
+      type: "string",
+      description: "The resource identifier defined by VMware VROPS. Call API of VROPS (value of \"idetifier\") : /api/resources/",
+      displayName: "VMware Resource ID",
+    },
+    VCenters: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_virtual_center",
+      },
+      relation: {
+        relationName: "manage",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    Hypervisors: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "hypervisor",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+      },
+    },
+    Nodes: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "node",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+        direction: "to",
+      },
+    },
+    VirtualizationLayers: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "virtualization_layer",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+      },
+    },
+    Clusters: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_cluster",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    DataStores: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_datastore",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+        direction: "to",
+      },
+    },
+    TenantsUses: {
+      type: "array",
+      description: "The IDs of the Tenants who are associated with the CI",
+      displayName: "Consumer Tenants",
+      items: {
+        type: "string",
+      },
+    },
+    TenantOwner: {
+      type: "string",
+      description: "The Tenant Owner ID",
+      displayName: "Owner Tenant",
+      tags: [
+        "DDM_NO_VALIDATION",
+      ],
+    },
+    zone_list: {
+      type: "array",
+      description: "List of management zones in which the CI is discovered",
+      displayName: "Zone List",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SIMPLE_FAST_LIST",
+        "INDEX",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    discovery_state: {
+      type: "string",
+      description: "State of UD discovery",
+      displayName: "Discovery State",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    metaphase: {
+      type: "string",
+      description: "Meta Phase of a CI in SMAX. The attribute is owned by SMAX exclusively",
+      displayName: "Meta Phase",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    monitor_state: {
+      type: "string",
+      description: "Monitor State of a CI in OpsB. The attribute is owned by OpsB exclusively.",
+      displayName: "Monitor State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    provision_state: {
+      type: "string",
+      description: "Provision State of a CI in HCMX. The attribute is owned by HCMX exclusively.",
+      displayName: "Provision State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    ci_lifecycle_state: {
+      type: "string",
+      description: "The attribute indicates the overall Lifecycle state of a CI when using enhanced lifecycle solution",
+      displayName: "CI Lifecycle State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "CALCULATED_LIFECYCLE",
+      ],
+    },
+    regulatory_details: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the regulatory details. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Regulatory Details",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    regulatory_status: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the regulatory status. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Regulatory Status",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    vulnerability_details: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the vulnerability details. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Vulnerability Details",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    vulnerability_status: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the vulnerability status. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Vulnerability Status",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+	VmwareClusters: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_cluster",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+  },
+  defaultDataSource: "ucmdb",
+  dataSources: {
+    ucmdb: {
+      mappingType: "vmware_datacenter",
+    },
+  },
+  interfaces: [
+    "CI",
+  ],
+  tags: [
+    "AVAILABLE_IN_MODELLING_WIDGET_CMDB",
+    "RANDOM_GENERATED_ID_CLASS",
+    "AVAILABLE_IN_MODELLING_WIDGET_SACM",
+  ],
+}

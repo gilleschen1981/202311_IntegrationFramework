@@ -1,0 +1,3079 @@
+{
+  title: "node",
+  idFieldName: "global_id",
+  description: "Node",
+  interfaces: [
+    "CI",
+  ],
+  type: "object",
+  properties: {
+    global_id: {
+      type: "string",
+      description: "A globally unique identifier for the entity represented by the object",
+      displayName: "Global Id",
+      tags: [
+        "BDM_SCOPE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: "global_id",
+        },
+        smax: {
+          fieldMapping: "GlobalId",
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: "Global ID",
+          name: "GlobalId",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    Id: {
+      type: "string",
+      description: "Id",
+      dataSource: "smax",
+      displayName: "Id",
+      originalType: "SMALL_TEXT",
+    },
+    host_osinstalltype: {
+      type: "string",
+      description: "Node Operating System Installation type",
+      displayName: "Node Operating System Installation type",
+      tags: [
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+    },
+    has_managed_disks: {
+      type: "string",
+      description: "[Summary] Flags if any of the OS Disks and any of the Data Disks are managed. [Collection_Azure] The data is collected from RESTAPI response(/subscriptions/subscription_id/resourceGroups/resourceGroup_id/providers/Microsoft.Compute/virtualMachines/VM_name)value of [properties][osDisk][managedDisks] and [properties][dataDisk][managedDisks]",
+      displayName: "Has Managed Disks",
+      tags: [],
+    },
+    os_licensing_benefit: {
+      type: "string",
+      description: "[Summary] Specifies that the image or disk that is being used was licensed on-premises. [Collection_Azure] The data is collected from RESTAPI response(/subscriptions/subscription_id/resourceGroups/resourceGroup_id/providers/Microsoft.Compute/virtualMachines/VM_name)value of [properties][licenseType]",
+      displayName: "OsLicensingBenefit",
+      tags: [],
+    },
+    platform_vendor: {
+      type: "string",
+      description: "This attribute indicates the hosting platform of this node. For example, AWS, Azure, etc",
+      displayName: "Platform Vendor",
+      tags: [
+        "CMS_CI_PROPERTIES_LAYOUT",
+      ],
+    },
+    os_description: {
+      type: "string",
+      description: " This attribute is used to describe the characteristics of the hardware/device operating system running on a node.  This description can include detailed version and patch information",
+      displayName: "OsDescription",
+      tags: [
+        "BDM_SCOPE",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "OS description",
+          name: "OsDescription",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    bios_date: {
+      type: "date",
+      description: "The BIOS/Firmware release date.",
+      displayName: "BiosDate",
+      tags: [
+        "STATIC",
+      ],
+    },
+    node_os_description: {
+      type: "string",
+      description: "Internal use only",
+      displayName: "NodeOsDescription",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    dns_servers: {
+      type: "array",
+      description: "The IP address list of the network adapter Domain Name System (DNS) server for this machine.",
+      displayName: "DnsServers",
+      items: {
+        type: "string",
+      },
+    },
+    display_label: {
+      type: "string",
+      description: "Used as calc attribute for display",
+      displayName: "Display Label",
+      tags: [
+        "BDM_SCOPE",
+        "DASH_ATTRIBUTE",
+        "ASSET",
+        "INDEX",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+        "CALCULATED_ATTRIBUTE",
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: "display_label",
+        },
+        smax: {
+          fieldMapping: "DisplayLabel",
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: "Display label",
+          name: "DisplayLabel",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    bios_source: {
+      type: "string",
+      description: "Shows the version of the BIOS source code.",
+      displayName: "BiosSource",
+      tags: [
+        "STATIC",
+      ],
+    },
+    domain_name: {
+      type: "string",
+      description: "[Summary]This is the domain name of which the node is part of. Typically domains are used to structure entities because of organizational / authorization oriented reasons. The domain name differs from the hostname in the way that the hostname is based on DNS, whereas the DomainName is based on other kind of domains (yp, nis, AD). [Collection - Windows] use command: set user [Collection - Unix] use command: uname -y",
+      displayName: "DomainName",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "ASSET",
+        "COMPARABLE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Domain name",
+          name: "DomainName",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    internal_name: {
+      type: "string",
+      description: "Internal name of a SiteScope group which is a parent of the node monitored by SiteScope",
+      displayName: "Internal Name of a Node Monitored by SiteScope",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    bit_position: {
+      type: "integer",
+      description: "Bit Position",
+      displayName: "Bit Position",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: "bit_position",
+        },
+        smax: {
+          fieldMapping: "BitPosition",
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: "Bit position",
+          name: "BitPosition",
+          originalType: "INTEGER",
+        },
+      },
+    },
+    root_actualdeletetime: {
+      type: "date",
+      description: "When will this CI be deleted",
+      displayName: "Actual Delete Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    state: {
+      type: "string",
+      description: "State location",
+      displayName: "State",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    primary_ip_address: {
+      type: "string",
+      description: "This attribute is a primary IP address for a node.",
+      displayName: "PrimaryIPAddress",
+    },
+    bios_uuid: {
+      type: "string",
+      description: "[Summary]A System Management BIOS identifier that is designed to be unique across both time and space, and requires no central registration process. The UUID is 128 bits long uppercase value in big-endian encoding (example: 00112233-4455-6677-8899-AABBCCDDEEFF). [Collection-Windows] use wmi command: wmic path win32_ComputerSystemProduct get uuid [Collection-Unix] use command: dmidecode -t system",
+      displayName: "BiosUuid",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "TO_UPPER_CASE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "BIOS UUID",
+          name: "BiosUUID",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    data_externalid: {
+      type: "string",
+      description: "external source id: snmp index, data sources index etc.",
+      displayName: "External ID",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    snmp_sys_name: {
+      type: "string",
+      description: "This is name reported by a SNMP agent on a device. It is different from a DNS name.",
+      displayName: "SnmpSysName",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "TO_LOWER_CASE",
+        "ASSET",
+        "STATIC",
+      ],
+    },
+    node_model: {
+      type: "string",
+      description: "[Summary]This attribute represents a specific model of a node/hardware/device.         [Collection]         This value is the output of normalization engine.         [Collection - AWS]         For AWS EC2 instances, collected by accessing the URL http://169.254.169.254/latest/meta-data/instance-id on the EC2 instance or by AWS Java API com.amazonaws.services.ec2.AmazonEC2Client().describeInstances(DescribeInstancesRequest()).getReservations().getInstances().getInstanceType()",
+      displayName: "NodeModel",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+    },
+    ud_unique_id: {
+      type: "string",
+      description: "[Summary]A unique identifier which is generated by UD Agent for the Node reported by Universal Discoveries. This attribute should be empty if UD Agent is not involved",
+      displayName: "UdUniqueId",
+      tags: [
+        "STATIC",
+      ],
+    },
+    discovered_location: {
+      type: "string",
+      description: "Represents a discoverable location e.g.the SysLocation value reported by an SNMP agent on a devicewhich is oftenincludesspecific location info such as floor, room, building etc.",
+      displayName: "DiscoveredLocation",
+      tags: [
+        "BDM_SCOPE",
+        "STATIC",
+      ],
+    },
+    lic_type_operational: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Operational License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_iscandidatefordeletion: {
+      type: "boolean",
+      description: "Is candidate for deletion",
+      displayName: "Is Candidate For Deletion",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_source: {
+      type: "string",
+      description: "Created By",
+      displayName: "Created By",
+      tags: [
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_by: {
+      type: "string",
+      description: "Who discovered this CI",
+      displayName: "LastDiscoveredBy",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    sys_object_id: {
+      type: "string",
+      description: "The system object identifier of the node if the node supports SNMP.",
+      displayName: "SysObjecttId",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+      ],
+    },
+    data_testcorrstate: {
+      type: "string",
+      description: "Test State",
+      displayName: "Test Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    credentials_id: {
+      type: "string",
+      description: "Reference to the credentials dictinary entry",
+      displayName: "Reference to the credentials dictionary entry",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    discovered_model: {
+      type: "string",
+      description: "The node model as determined during discovery (e.g. Proliant DL140 G2, VMware Virtual Platform, etc.)",
+      displayName: "DiscoveredModel",
+      tags: [
+        "BDM_SCOPE",
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Inventoried model",
+          name: "Model",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    calculated_id: {
+      type: "string",
+      description: "Calculated ID",
+      displayName: "Calculated ID",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+      ],
+    },
+    data_note: {
+      type: "string",
+      description: "Note",
+      displayName: "Note",
+    },
+    host_servertype: {
+      type: "string",
+      description: "Describe the server in bit wise",
+      displayName: "Node Server Type",
+    },
+    host_last_boot_time: {
+      type: "date",
+      description: "Node last boot time",
+      displayName: "Node Boot Time",
+      tags: [
+        "ALLOW_VOLATILITY",
+      ],
+    },
+    host_last_suspend_time: {
+      type: "date",
+      description: "Node last suspend time",
+      displayName: "Node Suspend Time",
+      tags: [
+        "ALLOW_VOLATILITY",
+      ],
+    },
+    document_list: {
+      type: "string",
+      description: "Documents",
+      displayName: "Documents",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "LIST",
+      ],
+    },
+    data_adminstate: {
+      type: "string",
+      description: "Admin State",
+      displayName: "Admin State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    lic_type_full: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Full License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    extended_os_family: {
+      type: "string",
+      description: "[Summary]This attribute is a fine grained descriptor of the operating system family. [Collection This value is the output of normalization engine.]",
+      displayName: "ExtendedOsFamily",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    city: {
+      type: "string",
+      description: "City location",
+      displayName: "City",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    discovered_os_name: {
+      type: "string",
+      description: "[Summary]The operating system name as determined during discovery (e.g. Windows XP, Windows 2003, SunOS) [Collection-windows] use wmi command: wmic path Win32_OperatingSystem get Caption Analyze the output and build the value: Windows server: Windows Server + [Version] + [Release] + [Service Pack] Windows: Windows + [Version] [Collection-unix] use command : uname -a Analyze the output and use one of the values in : Ubuntu (Linux), RHEL (Linux), Debian (Linux), CentOS (Linux), Fedora (Linux), Container Linux (Linux), SuSE (Linux), SLES (Linux), openSUSE (Linux), Amazon Linux (Linux), Oracle Linux (Linux), ClearOS (Linux), Gentoo (Linux), FreeBSD (Unix), Linux, XenServer, Mac OS X, OS X",
+      displayName: "DiscoveredOsName",
+      tags: [
+        "BDM_SCOPE",
+        "ALERT_NOTIFICATION_ATTRIBUTE",
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "OS name",
+          name: "OsName",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    bitmap_id: {
+      type: "integer",
+      description: "Bitmap ID",
+      displayName: "Bitmap ID",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: "bitmap_id",
+        },
+        smax: {
+          fieldMapping: "BitmapId",
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: "Bitmap Id",
+          name: "BitmapId",
+          originalType: "INTEGER",
+        },
+      },
+    },
+    last_discovered_by_probe: {
+      type: "string",
+      description: "Which probe discovered this CI",
+      displayName: "LastDiscoveredByProbe",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    host_isvirtual: {
+      type: "boolean",
+      description: "[Summary]True value marks that the node is virtual. On the contrary, False don't means it's definitely physical machine. It's possible that we don't have enough information to identify it. [Collection] Virtualization job and Cloud job will mark the node as virtual.",
+      displayName: "Node Is Virtual",
+      tags: [
+        "DDM_SETNULLIFMISSING",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Virtual device",
+          name: "VirtualDevice",
+          originalType: "BOOLEAN",
+        },
+      },
+    },
+    discovered_os_vendor: {
+      type: "string",
+      description: "[Summary]The operating system vendor name as determined during discovery (e.g. Windows, Sun Microsystems). [Collection] Exact vendor name is decided by normalization engine",
+      displayName: "DiscoveredOsVendor",
+      tags: [
+        "BDM_SCOPE",
+        "ALERT_NOTIFICATION_ATTRIBUTE",
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+    },
+    node_role: {
+      type: "array",
+      description: "This describes all possible role a node can have such as router, switch, firewall, etc.. Users can also add additional capabilities to the Node on the fly for their own purposes. For example, they may want to identify a device as CPE (Customer Premise Equipment) and will add a capability called isCPE.",
+      displayName: "NodeRole",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "BDM_SCOPE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+    },
+    host_key: {
+      type: "string",
+      description: "Unique string identifying the specific node (On complete nodes this value will hold the smallest MAC address of the node and on non-complete nodes this value will hold node_ip Probe domain)",
+      displayName: "Node Key",
+      tags: [
+        "REPLACE_VALUE_WITH_VALUE_FROM_SYSTEM_PROPERTY",
+        "NOT_CHANGE_MONITORED",
+      ],
+    },
+    last_discovered_time: {
+      type: "date",
+      description: "When was this CI discovered",
+      displayName: "LastDiscoveredTime",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    vendor: {
+      type: "string",
+      description: "The vendor/manufacturer name of a software, node, or element",
+      displayName: "Vendor",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "STATIC",
+      ],
+    },
+    digest: {
+      type: "string",
+      description: "Digest",
+      displayName: "Digest",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_iconproperties: {
+      type: "string",
+      description: "root_iconproperties",
+      displayName: "root_iconproperties",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "INTERNAL_ATTRIBUTE",
+      ],
+    },
+    default_gateway_ip_address: {
+      type: "string",
+      description: "This is the IP address of the default router for a given device. Default router is used by device as the next hop of last choice in case no other specific routes are defined for a destination.     ",
+      displayName: "DefaultGatewayIpAddress",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "IP_ADDRESS_SHORT_FORMAT",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Default gateway IP address",
+          name: "DefaultGatewayIPAddress",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    bios_serial_number: {
+      type: "string",
+      description: "A manufacturer specified serial number or unique ID of the BIOS.",
+      displayName: "BiosSerialNumber",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "BIOS serial number",
+          name: "BiosSerialNumber",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    os_vendor: {
+      type: "string",
+      description: "The name of the vendor of the operating system (e.g. Microsoft, HP, etc).",
+      displayName: "OsVendor",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "OS vendor",
+          name: "OsVendor",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    last_modified_time: {
+      type: "date",
+      description: "When was this CI last updated",
+      displayName: "LastModifiedTime",
+      tags: [
+        "BDM_SCOPE",
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_changestate: {
+      type: "string",
+      description: "Change State",
+      displayName: "Change State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    user_label: {
+      type: "string",
+      description: "Used as user label",
+      displayName: "User Label",
+    },
+    contextmenu: {
+      type: "array",
+      description: "Context menu",
+      displayName: "Context Menu",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "NOT_CHANGE_MONITORED",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "LIST",
+      ],
+    },
+    primary_dns_name: {
+      type: "string",
+      description: "[Summary]This attribute is a fully qualified dns domain name for a node (also known as DNS name). A node could have many IP addresses on it and some of those IP addresses are also private.So, selecting one DNS name for a node is a non-trivial task.This attribute will typically be populated by selecting one of the IP addresses on the node and resolving the DNS name for that address and then using it as the hostname for the node.",
+      displayName: "PrimaryDnsName",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "TO_LOWER_CASE",
+        "ASSET",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Primary DNS name",
+          name: "PrimaryDNSName",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    data_testisnew: {
+      type: "boolean",
+      description: "Test State",
+      displayName: "Test Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    root_candidatefordeletetime: {
+      type: "date",
+      description: "When will this CI be warned about deleting",
+      displayName: "Candidate For Deletion Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_changeisnew: {
+      type: "boolean",
+      description: "Change State",
+      displayName: "Change Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    cloud_instance_id: {
+      type: "string",
+      description: "This attribute is the instance id in cloud environment. [Collection] For AWS EC2 instances, by accessing the URL http://169.254.169.254/latest/meta-data/instance-id on the EC2 instance or by AWS Java API com.amazonaws.services.ec2.AmazonEC2Client().describeInstances(DescribeInstancesRequest()).getReservations().getInstances().getId()",
+      displayName: "Cloud Instance ID",
+      tags: [
+        "STATIC",
+      ],
+    },
+    track_changes: {
+      type: "boolean",
+      description: "Track configuration changes",
+      displayName: "Track Configuration Changes",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    host_isdesktop: {
+      type: "boolean",
+      description: "Is this node a desktop",
+      displayName: "Node is Desktop",
+      tags: [
+        "STATIC",
+      ],
+    },
+    lic_operational2advanced: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Operational2Advanced License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    country: {
+      type: "string",
+      description: "Country or province location",
+      displayName: "Country or Province",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    discovered_os_version: {
+      type: "string",
+      description: "The operating system version as determined during discovery.",
+      displayName: "DiscoveredOsVersion",
+      tags: [
+        "BDM_SCOPE",
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "OS version",
+          name: "OsVersion",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    language: {
+      type: "string",
+      description: "System suported language",
+      displayName: "Language",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    lic_type_udf: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has UDF License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    swap_memory_size: {
+      type: "integer",
+      description: "SwapMemorySize",
+      displayName: "SwapMemorySize",
+      tags: [
+        "ALLOW_VOLATILITY",
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "STATIC",
+      ],
+    },
+    lic_type_udi: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has UDI License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    data_operationstate: {
+      type: "string",
+      description: "Operation State",
+      displayName: "Operation State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_origin: {
+      type: "string",
+      description: "Origin",
+      displayName: "Origin",
+      tags: [
+        "BLE_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    host_nnm_uid: {
+      type: "string",
+      description: "UID of the node in NNM topology",
+      displayName: "Node NNM UID",
+    },
+    processor_family: {
+      type: "string",
+      description: "Architecture of the node's processor",
+      displayName: "ProcessorFamily",
+      tags: [
+        "STATIC",
+      ],
+    },
+    data_teststate: {
+      type: "string",
+      description: "Test State",
+      displayName: "Test State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    root_container: {
+      type: "string",
+      description: "Container CI of this CI",
+      displayName: "Container",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    default_gateway_ip_address_type: {
+      type: "string",
+      description: "The type of the IP Address of the default gateway (e.g. IPv4, IPv6)",
+      displayName: "DefaultGatewayIpAddressType",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    primary_mac_address: {
+      type: "string",
+      description: "This attribute is a primary MAC address for a node.",
+      displayName: "PrimaryMACAddress",
+    },
+    lic_type: {
+      type: "array",
+      description: "Internal use only",
+      displayName: "License Type",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    host_osrelease: {
+      type: "string",
+      description: "Operating System Release",
+      displayName: "Node Operating System Release",
+      tags: [
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+    },
+    create_time: {
+      type: "date",
+      description: "When was this CI created",
+      displayName: "Created Time",
+      tags: [
+        "BDM_SCOPE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    host_nnm_internal_key: {
+      type: "string",
+      description: "Node primary key in NNMi Database join with NNMi server IP. Only for uCMDB internal use",
+      displayName: "Node NNM Internal Key",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_lastaccesstime: {
+      type: "date",
+      description: "When was this CI last accessed",
+      displayName: "Last Access Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    discovered_contact: {
+      type: "string",
+      description: "Represents a discoverable contact infoe.g. the SysContact value as reported by an SNMP agent on a device whichis often containsspecific contact information.",
+      displayName: "DiscoveredContact",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    codepage: {
+      type: "string",
+      description: "System suported CodePage",
+      displayName: "CodePage",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    discovered_description: {
+      type: "string",
+      description: "Represents a discoverable description e.g.the SysDescr value reported by an SNMP agent on a device which is often contains some useful information about the device including its role.",
+      displayName: "DiscoveredDescription",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    discovered_vendor: {
+      type: "string",
+      description: "The node vendor name as determined during discovery (e.g. HP, VMware Inc., etc.)",
+      displayName: "DiscoveredVendor",
+      tags: [
+        "BDM_SCOPE",
+        "ASSET",
+        "COMPARABLE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Inventoried Manufacturer",
+          name: "Vendor",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    extended_node_family: {
+      type: "string",
+      description: "This is a fine grained family of the node/hardware/device.",
+      displayName: "ExtendedNodeFamily",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    name: {
+      type: "string",
+      description: "[Summary]Short name of the host, without domain suffix. Usually an output of hostname command. [Collection-Windows] use command: hostname or ipconfig /all or wmic path Win32_ComputerSystem get Name [Collection-Unix] use command: hostname or uname -n",
+      displayName: "Name",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "TO_LOWER_CASE",
+        "DASH_ATTRIBUTE",
+        "INDEX",
+        "STATIC",
+      ],
+    },
+    ack_id: {
+      type: "string",
+      description: "ack_id",
+      displayName: "ack_id",
+      tags: [
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    is_save_persistency: {
+      type: "boolean",
+      description: "Store KPI history for over time reports",
+      displayName: "Store KPI History For Over Time Reports",
+      tags: [
+        "BLE_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_enableageing: {
+      type: "boolean",
+      description: "Is aging enabled",
+      displayName: "Enable Aging",
+    },
+    data_updated_by: {
+      type: "string",
+      description: "LastModifiedBy",
+      displayName: "LastModifiedBy",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    chassis_type: {
+      type: "string",
+      description: "Specifies the type of the chassis, such as Desktop, Mini Tower, etc.",
+      displayName: "ChassisType",
+    },
+    host_isroute: {
+      type: "boolean",
+      description: "True value marks if the node have more then one ip address each in different subnet",
+      displayName: "Node Is Route",
+    },
+    os_family: {
+      type: "string",
+      description: "This attribute is a course grain descriptor for the operating system family. For example, Windows,Unix, etc",
+      displayName: "OsFamily",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "OS type",
+          name: "OsType",
+          originalType: "ENUM",
+        },
+      },
+    },
+    data_operationisnew: {
+      type: "boolean",
+      description: "Operation State",
+      displayName: "Operation Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    lic_type_basic: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Basic License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    lic_type_premium: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Premium License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    lic_type_asset: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Asset License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    lic_type_management: {
+      type: "boolean",
+      description: "Internal use only",
+      displayName: "Has Management License",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    description: {
+      type: "string",
+      description: "Description",
+      displayName: "Description",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    root_class: {
+      type: "string",
+      description: "Class name of the CI",
+      displayName: "CI Type",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "CI Type",
+          name: "CiType_c",
+        },
+      },
+    },
+    ack_cleared_time: {
+      type: "bigint",
+      description: "ack_cleared_time",
+      displayName: "ack_cleared_time",
+      tags: [
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    calculated_location: {
+      type: "string",
+      description: "CalculatedLocation",
+      displayName: "CalculatedLocation",
+    },
+    data_allow_auto_discovery: {
+      type: "boolean",
+      description: "Allow CI Update",
+      displayName: "Allow CI Update",
+      tags: [
+        "DASH_ATTRIBUTE",
+      ],
+    },
+    host_osaccuracy: {
+      type: "string",
+      description: "Operating System Model accuracy",
+      displayName: "Node Operating System accuracy",
+      tags: [
+        "ASSET",
+      ],
+    },
+    root_system: {
+      type: "string",
+      description: "System",
+      displayName: "System",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_changecorrstate: {
+      type: "string",
+      description: "Change State",
+      displayName: "Change Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    bios_asset_tag: {
+      type: "string",
+      description: "Asset tag number of the Node, as defined by the DMTF SYMBIOS specification.",
+      displayName: "BiosAssetTag",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "ASSET",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "BIOS asset tag",
+          name: "BiosAssetTag",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    sd_type: {
+      type: "string",
+      description: "SD Type",
+      displayName: "SD Type",
+      tags: [
+        "INDEX",
+      ],
+      dataSource: {
+        ucmdb: {
+          fieldMapping: "sd_type",
+        },
+        smax: {
+          fieldMapping: "SubType",
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: "Subtype",
+          name: "SubType",
+          originalType: "ENUM",
+        },
+      },
+    },
+    os_installed_date: {
+      type: "date",
+      description: "Shows the date when the operation system is installed",
+      displayName: "OSInstalledDate",
+      tags: [
+        "STATIC",
+      ],
+    },
+    bios_version: {
+      type: "string",
+      description: "Shows the version of the BIOS.",
+      displayName: "BiosVersion",
+      tags: [
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "BIOS version",
+          name: "BiosVersion",
+          originalType: "MEDIUM_TEXT",
+        },
+      },
+    },
+    memory_size: {
+      type: "integer",
+      description: "The size of volatile memory (RAM, SRAM, DRAM, ZRAM, TRAM) in megabytes.",
+      displayName: "MemorySize",
+      tags: [
+        "ALLOW_VOLATILITY",
+        "BDM_SCOPE",
+        "COMPARABLE",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Memory size",
+          name: "MemorySize",
+          originalType: "INTEGER",
+        },
+      },
+    },
+    net_bios_name: {
+      type: "string",
+      description: "The NetBios name is used by NetBios services running on a computer. It is combination of a 15 character (byte) name and a 16th character denoting the service. The NetBios name of a computer is usually the same as the computer's host name (truncated to 15 characters length) but may also be completely different.",
+      displayName: "NetBiosName",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Net BIOS name",
+          name: "NetBiosName",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    host_iscomplete: {
+      type: "boolean",
+      description: "True value marks if the smallest MAC address of the node was discovered",
+      displayName: "Node Is Complete",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+      ],
+    },
+    node_family: {
+      type: "string",
+      description: "This is a family of the node/hardware/device as commonly advertised by the device vendor. For example C-Class, 6500Series etc.",
+      displayName: "NodeFamily",
+      tags: [
+        "BDM_SCOPE",
+        "COMPARABLE",
+      ],
+    },
+    cloud_private_dns_name: {
+      type: "string",
+      description: "[Summary]This attribute is internal hostname of the cloud instance, which resolves to the instance's private IP address. [Collection-AWS] CALL API of AWSSDK:'AmazonEC2Client.describeInstances(DescribeInstancesRequest).getReservations().getPrivateDnsName()'  [Example]'ip-172-31-14-56.ap-southeast-1.compute.internal' .",
+      displayName: "CloudPrivateDnsName",
+    },
+    data_operationcorrstate: {
+      type: "string",
+      description: "Operation State",
+      displayName: "Operation Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    serial_number: {
+      type: "string",
+      description: "[Summary]A manufacturer specified serial number or unique ID for a product or element [Collection-Windows] wmic path Win32_BIOS get serialNumber [Collection-Unix] dmidecode -t system",
+      displayName: "SerialNumber",
+      tags: [
+        "DDM_AUTOTRIM",
+        "BDM_SCOPE",
+        "TO_UPPER_CASE",
+        "ASSET",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "STATIC",
+      ],
+      federationInfo: {
+        smax: {
+          displayName: "Serial number",
+          name: "SerialNumber",
+          originalType: "SMALL_TEXT",
+        },
+      },
+    },
+    FirstInstallationDate: {
+      type: "date",
+      description: "FirstInstallationDate",
+      dataSource: "smax",
+      displayName: "First installation date",
+      originalType: "DATE",
+    },
+    ExternalPONumber: {
+      type: "string",
+      description: "ExternalPONumber",
+      dataSource: "smax",
+      displayName: "External PO number",
+      originalType: "SMALL_TEXT",
+    },
+    RetiredToVendor: {
+      type: "object",
+      description: "RetiredToVendor",
+      reference: "Company",
+      dataSource: "smax",
+      displayName: "Retired to",
+    },
+    CalculatedFields: {
+      type: "string",
+      description: "CalculatedFields",
+      dataSource: "smax",
+      displayName: "Calculated fields",
+      originalType: "COMPLEX_TYPE",
+    },
+    CoveredByLeaseScheduleContract: {
+      type: "object",
+      description: "CoveredByLeaseScheduleContract",
+      reference: "Contract",
+      dataSource: "smax",
+      displayName: "Lease schedule contract",
+    },
+    ResaleDate: {
+      type: "date",
+      description: "ResaleDate",
+      dataSource: "smax",
+      displayName: "Resale date",
+      originalType: "DATE",
+    },
+    ExplicitStakeholders: {
+      type: "string",
+      description: "ExplicitStakeholders",
+      dataSource: "smax",
+      displayName: "Explicit Stakeholders",
+      originalType: "SMALL_TEXT",
+    },
+    ShortDescription: {
+      type: "string",
+      description: "ShortDescription",
+      dataSource: "smax",
+      displayName: "Short description",
+      originalType: "SMALL_TEXT",
+    },
+    Name: {
+      type: "string",
+      description: "Name",
+      dataSource: "smax",
+      displayName: "Name",
+      originalType: "SMALL_TEXT",
+    },
+    OwnedByPerson: {
+      type: "object",
+      description: "OwnedByPerson",
+      reference: "Person",
+      dataSource: "smax",
+      displayName: "Owner",
+    },
+    LastUpdateTime: {
+      type: "date",
+      description: "LastUpdateTime",
+      dataSource: "smax",
+      displayName: "Last Update Time",
+      originalType: "DATE_TIME",
+    },
+    Currency: {
+      type: "string",
+      description: "Currency",
+      dataSource: "smax",
+      displayName: "Currency",
+      originalType: "ENUM",
+    },
+    RMANumber: {
+      type: "string",
+      description: "RMANumber",
+      dataSource: "smax",
+      displayName: "RMA number",
+      originalType: "SMALL_TEXT",
+    },
+    SharedAsset: {
+      type: "boolean",
+      description: "SharedAsset",
+      dataSource: "smax",
+      displayName: "Shared asset",
+      originalType: "BOOLEAN",
+    },
+    InvoiceNumber: {
+      type: "string",
+      description: "InvoiceNumber",
+      dataSource: "smax",
+      displayName: "Invoice number",
+      originalType: "SMALL_TEXT",
+    },
+    ReceivingLine: {
+      type: "object",
+      description: "ReceivingLine",
+      reference: "ReceivingLine",
+      dataSource: "smax",
+      displayName: "Receiving line",
+    },
+    HostName: {
+      type: "string",
+      description: "HostName",
+      dataSource: "smax",
+      displayName: "Host name",
+      originalType: "SMALL_TEXT",
+    },
+    LastInventoriedDate: {
+      type: "date",
+      description: "LastInventoriedDate",
+      dataSource: "smax",
+      displayName: "Last inventoried date",
+      originalType: "DATE",
+    },
+    PhaseId: {
+      type: "string",
+      description: "PhaseId",
+      dataSource: "smax",
+      displayName: "Phase Id",
+      originalType: "SMALL_TEXT",
+    },
+    IsDeleted: {
+      type: "boolean",
+      description: "IsDeleted",
+      dataSource: "smax",
+      displayName: "Is Deleted",
+      originalType: "BOOLEAN",
+    },
+    CalculatedTmpFields: {
+      type: "string",
+      description: "CalculatedTmpFields",
+      dataSource: "smax",
+      displayName: "Calculated temporary fields",
+      originalType: "COMPLEX_TYPE",
+    },
+    PaymentDate: {
+      type: "date",
+      description: "PaymentDate",
+      dataSource: "smax",
+      displayName: "Payment date",
+      originalType: "DATE",
+    },
+    SupportLevel3Group: {
+      type: "object",
+      description: "SupportLevel3Group",
+      reference: "PersonGroup",
+      dataSource: "smax",
+      displayName: "3rd level support",
+    },
+    HasBackupAsset: {
+      type: "object",
+      description: "HasBackupAsset",
+      reference: "node",
+      dataSource: "smax",
+      displayName: "Backup device",
+    },
+    VirtualDevice: {
+      type: "boolean",
+      description: "VirtualDevice",
+      dataSource: "smax",
+      displayName: "Virtual device",
+      originalType: "BOOLEAN",
+    },
+    ResalePrice: {
+      type: "number",
+      description: "ResalePrice",
+      dataSource: "smax",
+      displayName: "Resale price",
+      originalType: "DOUBLE",
+    },
+    Brand: {
+      type: "object",
+      description: "Brand",
+      reference: "Brand",
+      dataSource: "smax",
+      displayName: "Brand",
+    },
+    PlannedRetirementDate: {
+      type: "date",
+      description: "PlannedRetirementDate",
+      dataSource: "smax",
+      displayName: "Planned retirement date",
+      originalType: "DATE",
+    },
+    AssetTag: {
+      type: "string",
+      description: "AssetTag",
+      dataSource: "smax",
+      displayName: "Asset tag",
+      originalType: "SMALL_TEXT",
+    },
+    AllStakeholders: {
+      type: "string",
+      description: "AllStakeholders",
+      dataSource: "smax",
+      displayName: "All Stakeholders",
+      originalType: "SMALL_TEXT",
+    },
+    Missing: {
+      type: "boolean",
+      description: "Missing",
+      dataSource: "smax",
+      displayName: "Missing",
+      originalType: "BOOLEAN",
+    },
+    Expire: {
+      type: "integer",
+      description: "Expire",
+      dataSource: "smax",
+      displayName: "Expire",
+      originalType: "INTEGER",
+    },
+    AcquisitionType: {
+      type: "string",
+      description: "AcquisitionType",
+      dataSource: "smax",
+      displayName: "Acquisition type",
+      originalType: "ENUM",
+    },
+    DefaultMaintenanceContract: {
+      type: "object",
+      description: "DefaultMaintenanceContract",
+      reference: "Contract",
+      dataSource: "smax",
+      displayName: "Default maintenance contract",
+    },
+    Barcode: {
+      type: "string",
+      description: "Barcode",
+      dataSource: "smax",
+      displayName: "Barcode",
+      originalType: "SMALL_TEXT",
+    },
+    SnmpName: {
+      type: "string",
+      description: "SnmpName",
+      dataSource: "smax",
+      displayName: "SNMP name",
+      originalType: "SMALL_TEXT",
+    },
+    Environment: {
+      type: "string",
+      description: "Environment",
+      dataSource: "smax",
+      displayName: "Environment",
+      originalType: "ENUM",
+    },
+    InitialPhase: {
+      type: "string",
+      description: "InitialPhase",
+      dataSource: "smax",
+      displayName: "Select phase for new device",
+      originalType: "ENUM",
+    },
+    LocatedInStock: {
+      type: "object",
+      description: "LocatedInStock",
+      reference: "Stockroom",
+      dataSource: "smax",
+      displayName: "Stockroom",
+    },
+    DeviceAttachments: {
+      type: "string",
+      description: "DeviceAttachments",
+      dataSource: "smax",
+      displayName: "Attachments",
+      originalType: "COMPLEX_TYPE",
+    },
+    Reserved: {
+      type: "boolean",
+      description: "Reserved",
+      dataSource: "smax",
+      displayName: "Reserved",
+      originalType: "BOOLEAN",
+    },
+    DeviceToCompany: {
+      type: "object",
+      description: "DeviceToCompany",
+      reference: "Company",
+      dataSource: "smax",
+      displayName: "Device to Company",
+    },
+    DefaultWarrantyContract: {
+      type: "object",
+      description: "DefaultWarrantyContract",
+      reference: "Contract",
+      dataSource: "smax",
+      displayName: "Default warranty contract",
+    },
+    DiscoveredChange: {
+      type: "string",
+      description: "DiscoveredChange",
+      dataSource: "smax",
+      displayName: "Discovered change",
+      originalType: "LARGE_TEXT",
+    },
+    CostType: {
+      type: "object",
+      description: "CostType",
+      reference: "CostType",
+      dataSource: "smax",
+      displayName: "Cost type",
+    },
+    CloseCode: {
+      type: "string",
+      description: "CloseCode",
+      dataSource: "smax",
+      displayName: "Close code",
+      originalType: "ENUM",
+    },
+    RetirementDate: {
+      type: "date",
+      description: "RetirementDate",
+      dataSource: "smax",
+      displayName: "Retirement date",
+      originalType: "DATE",
+    },
+    SupportLevel2Group: {
+      type: "object",
+      description: "SupportLevel2Group",
+      reference: "PersonGroup",
+      dataSource: "smax",
+      displayName: "2nd level support",
+    },
+    AcquisitionEndDate: {
+      type: "date",
+      description: "AcquisitionEndDate",
+      dataSource: "smax",
+      displayName: "Acquisition end date",
+      originalType: "DATE",
+    },
+    CostCenter: {
+      type: "object",
+      description: "CostCenter",
+      reference: "CostCenter",
+      dataSource: "smax",
+      displayName: "Cost center",
+    },
+    EmsCreationTime: {
+      type: "date",
+      description: "EmsCreationTime",
+      dataSource: "smax",
+      displayName: "Creation Time",
+      originalType: "DATE_TIME",
+    },
+    AcquisitionDate: {
+      type: "date",
+      description: "AcquisitionDate",
+      dataSource: "smax",
+      displayName: "Acquisition date",
+      originalType: "DATE",
+    },
+    TaxRate: {
+      type: "string",
+      description: "TaxRate",
+      dataSource: "smax",
+      displayName: "Tax rate (%)",
+      originalType: "PERCENTAGE",
+    },
+    RetirementReason: {
+      type: "string",
+      description: "RetirementReason",
+      dataSource: "smax",
+      displayName: "Retirement reason",
+      originalType: "MEDIUM_TEXT",
+    },
+    Comments: {
+      type: "string",
+      description: "Comments",
+      dataSource: "smax",
+      displayName: "Comments",
+      originalType: "COMPLEX_TYPE",
+    },
+    NumberOfRelatedRecords: {
+      type: "integer",
+      description: "NumberOfRelatedRecords",
+      dataSource: "smax",
+      displayName: "Number of related records",
+      originalType: "INTEGER",
+    },
+    PaymentTerm: {
+      type: "string",
+      description: "PaymentTerm",
+      dataSource: "smax",
+      displayName: "Payment terms",
+      originalType: "ENUM",
+    },
+    TotalAmount: {
+      type: "number",
+      description: "TotalAmount",
+      dataSource: "smax",
+      displayName: "Total amount",
+      originalType: "DOUBLE",
+    },
+    Lifetime: {
+      type: "integer",
+      description: "Lifetime",
+      dataSource: "smax",
+      displayName: "Lifetime",
+      originalType: "INTEGER",
+    },
+    WarrantyEndDate: {
+      type: "date",
+      description: "WarrantyEndDate",
+      dataSource: "smax",
+      displayName: "Warranty end date",
+      originalType: "DATE",
+    },
+    LocatedAtLocation: {
+      type: "object",
+      description: "LocatedAtLocation",
+      reference: "Location",
+      dataSource: "smax",
+      displayName: "Location",
+    },
+    EntryDate: {
+      type: "date",
+      description: "EntryDate",
+      dataSource: "smax",
+      displayName: "Stockroom entry date",
+      originalType: "DATE",
+    },
+    AssetModel: {
+      type: "object",
+      description: "AssetModel",
+      reference: "AssetModel",
+      dataSource: "smax",
+      displayName: "Model",
+    },
+    ProcessId: {
+      type: "string",
+      description: "ProcessId",
+      dataSource: "smax",
+      displayName: "Process Id",
+      originalType: "SMALL_TEXT",
+    },
+    Managed: {
+      type: "boolean",
+      description: "Managed",
+      dataSource: "smax",
+      displayName: "Managed externally",
+      originalType: "BOOLEAN",
+    },
+    MaintenanceEndDate: {
+      type: "date",
+      description: "MaintenanceEndDate",
+      dataSource: "smax",
+      displayName: "Maintenance end date",
+      originalType: "DATE",
+    },
+    SupportLevel1Group: {
+      type: "object",
+      description: "SupportLevel1Group",
+      reference: "PersonGroup",
+      dataSource: "smax",
+      displayName: "1st level support",
+    },
+    TypeCondition: {
+      noRead: true,
+      type: "string",
+      filterType: {
+        type: "array",
+        items: {
+          type: "object",
+          reference: "UcmdbTypeCondition",
+        },
+      },
+    },
+    DiskDevices: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "disk_device",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    Cpus: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "cpu",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    InstalledSoftware: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "installed_software",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    RunningSoftwareOracleDBs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "oracle",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    Services: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "business_service",
+      },
+      relation: {
+        relationName: "join_f",
+        kind: "ci_relation",
+        filter: [
+          {
+            fromAttribute: "serial_number",
+            toAttribute: "provider",
+            operator: "equals",
+          },
+          {
+            fromAttribute: "host_isvirtual",
+            toAttribute: "is_save_persistency",
+            operator: "equals",
+          },
+        ],
+      },
+    },
+    RunningSoftwares: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "running_software",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    FileSystems: {
+      type: "array",
+      description: "",
+      items: {
+        type: "object",
+        reference: "file_system",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    IpAddresses: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "ip_address",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+      },
+    },
+    KubernetesNodeConfigs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "k8s_node_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    AwsAmis: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "aws_ami",
+      },
+      relation: {
+        relationName: "dependency",
+        kind: "ci_relation",
+      },
+    },
+    AwsVpcs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "aws_vpc",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    AwsAsgs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "amazon_asg",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    AwsEc2Configs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "amazon_ec2_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+        direction: "to",
+      },
+    },
+    AwsAccounts: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "amazon_account",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    AwsSecurityGroups: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "aws_sg",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+      },
+    },
+    LogicalVolumes: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "logical_volume",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    Locations: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "location",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    NetworkCards: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "interface",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    Hypervisors: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "hypervisor",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    ManagedByHypervisor: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "hypervisor",
+      },
+      relation: {
+        relationName: "execution_environment",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    VirtualizationLayers: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "virtualization_layer",
+      },
+      relation: {
+        relationName: "execution_environment",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    DeviceUsedByPerson: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Person",
+      },
+      description: "DeviceUsedByPerson",
+      dataSource: "smax",
+    },
+    DeviceAffectedByIncident: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Incident",
+      },
+      description: "DeviceAffectedByIncident",
+      dataSource: "smax",
+    },
+    DeviceAffectedByChange: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Change",
+      },
+      description: "DeviceAffectedByChange",
+      dataSource: "smax",
+    },
+    DeviceAffectedByRequest: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Request",
+      },
+      description: "DeviceAffectedByRequest",
+      dataSource: "smax",
+    },
+    DeviceAffectedByProblem: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Problem",
+      },
+      description: "DeviceAffectedByProblem",
+      dataSource: "smax",
+    },
+    RelatedToDevices: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "node",
+      },
+      description: "RelatedToDevices",
+      dataSource: "smax",
+    },
+    CoveredService: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Contract",
+      },
+      description: "CoveredService",
+      dataSource: "smax",
+    },
+    RequestFulfilledByDevice: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Request",
+      },
+      description: "RequestFulfilledByDevice",
+      dataSource: "smax",
+    },
+    FixedAssetAccountedForDevice: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "FixedAsset",
+      },
+      description: "FixedAssetAccountedForDevice",
+      dataSource: "smax",
+    },
+    RelatedToInfrastructurePeripherals: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "InfrastructurePeripheral",
+      },
+      description: "RelatedToInfrastructurePeripherals",
+      dataSource: "smax",
+    },
+    SystemElementContainsDevice: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "infrastructure_element",
+      },
+      description: "SystemElementContainsDevice",
+      dataSource: "smax",
+    },
+    ServiceComponentContainsDevice: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "business_application",
+      },
+      description: "ServiceComponentContainsDevice",
+      dataSource: "smax",
+    },
+    DeviceFulfillsRequest: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "Request",
+      },
+      description: "DeviceFulfillsRequest",
+      dataSource: "smax",
+    },
+    Description: {
+      type: "string",
+      description: "Description",
+      dataSource: "smax",
+      displayName: "Description",
+      originalType: "RICH_TEXT",
+    },
+    cmdb_id: {
+      type: "string",
+      description: "cmdb id",
+    },
+    dns_domain_name: {
+      type: "string",
+      description: "[Summary]The DNS Domain name, it is used to allocate IT resource on the network. It can be translated to an IP Address by DNS server. [Collection-Windows] use wmi command: wmic path Win32_NetworkAdapterConfiguration get DNSDomain [Collection-Unix] collect from '/etc/hosts' or extract from fqdn or use command 'hostname -d'",
+      displayName: "DNS Domain Name",
+      tags: [
+        "STATIC",
+      ],
+    },
+    node_state: {
+      type: "string",
+      description: "[Summary]Shows the state of the node.[Collection-AWS]API: AmazonEC2Client.describeInstances(DescribeInstancesRequest()).getReservations().getInstances().getState().getName() [Azure] API: https://management.azure.com/subscriptions/{sub_id}/resourceGroups/{rg_name}/providers/Microsoft.Compute/virtualMachines/{vm_name}?$expand=instanceView&api-version=2020-06-01 and https://management.azure.com/subscriptions/{sub_id}/resourceGroups/{rg_name}/providers/Microsoft.Compute/virtualMachineScaleSets/{ss_name}/virtualMachines/{instance_id}/instanceView?api-version=2020-06-01",
+      displayName: "Node State",
+    },
+    DataDomains: {
+      type: "array",
+      items: {
+        type: "string",
+      },
+      description: "Data Domains (Ucmdb Consumer Tenants)",
+      dataSource: {
+        ucmdb: {
+          fieldMapping: "TenantsUses",
+        },
+        smax: {
+          fieldMapping: "DataDomains",
+        },
+      },
+      federationInfo: {
+        smax: {
+          displayName: "Data domains",
+          name: "DataDomains",
+          originalType: "ENUM_SET",
+        },
+      },
+    },
+    DeviceCoveredByLeaseScheduleContract: {
+      type: "object",
+      description: "DeviceCoveredByLeaseScheduleContract",
+      reference: "Contract",
+      dataSource: "smax",
+    },
+    DeviceSupportLevel2Group: {
+      type: "object",
+      description: "DeviceSupportLevel2Group",
+      reference: "PersonGroup",
+      dataSource: "smax",
+    },
+    DeviceCostType: {
+      type: "object",
+      description: "DeviceCostType",
+      reference: "CostType",
+      dataSource: "smax",
+    },
+    DeviceHasBackupAsset: {
+      type: "object",
+      description: "DeviceHasBackupAsset",
+      reference: "node",
+      dataSource: "smax",
+    },
+    DeviceSupportLevel1Group: {
+      type: "object",
+      description: "DeviceSupportLevel1Group",
+      reference: "PersonGroup",
+      dataSource: "smax",
+    },
+    DeviceOwnedByPerson: {
+      type: "object",
+      description: "DeviceOwnedByPerson",
+      reference: "Person",
+      dataSource: "smax",
+    },
+    DeviceSupportLevel3Group: {
+      type: "object",
+      description: "DeviceSupportLevel3Group",
+      reference: "PersonGroup",
+      dataSource: "smax",
+    },
+    DeviceLocatedInStock: {
+      type: "object",
+      description: "DeviceLocatedInStock",
+      reference: "Stockroom",
+      dataSource: "smax",
+    },
+    DeviceCostCenter: {
+      type: "object",
+      description: "DeviceCostCenter",
+      reference: "CostCenter",
+      dataSource: "smax",
+    },
+    DeviceLocatedAtLocation: {
+      type: "object",
+      description: "DeviceLocatedAtLocation",
+      reference: "Location",
+      dataSource: "smax",
+    },
+    DeviceCoveredByDefaultMaintenanceContract: {
+      type: "object",
+      description: "DeviceCoveredByDefaultMaintenanceContract",
+      reference: "Contract",
+      dataSource: "smax",
+    },
+    DeviceBrand: {
+      type: "object",
+      description: "DeviceBrand",
+      reference: "Brand",
+      dataSource: "smax",
+    },
+    DeviceRelatedToCompany: {
+      type: "object",
+      description: "DeviceRelatedToCompany",
+      reference: "Company",
+      dataSource: "smax",
+    },
+    DeviceNormalizedToModel: {
+      type: "object",
+      description: "DeviceNormalizedToModel",
+      reference: "AssetModel",
+      dataSource: "smax",
+    },
+    DeviceReceivingLine: {
+      type: "object",
+      description: "DeviceReceivingLine",
+      reference: "ReceivingLine",
+      dataSource: "smax",
+    },
+    CoveredDevice: {
+      type: "array",
+      description: "CoveredDevice",
+      items: {
+        reference: "Contract",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceCoveredByDefaultWarrantyContract: {
+      type: "object",
+      description: "DeviceCoveredByDefaultWarrantyContract",
+      reference: "Contract",
+      dataSource: "smax",
+    },
+    DeviceRetiredToVendor: {
+      type: "object",
+      description: "DeviceRetiredToVendor",
+      reference: "Company",
+      dataSource: "smax",
+    },
+    BackupAssetForDevices: {
+      type: "array",
+      description: "BackupAssetForDevices",
+      items: {
+        reference: "node",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceCoveredContract: {
+      type: "array",
+      description: "DeviceCoveredContract",
+      items: {
+        reference: "Contract",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceSubscribedSubscription: {
+      type: "array",
+      description: "DeviceSubscribedSubscription",
+      items: {
+        reference: "Subscription",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    ExpenseLineDevice: {
+      type: "array",
+      description: "ExpenseLineDevice",
+      items: {
+        reference: "ExpenseLine",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    RequestRegisteredForDevice: {
+      type: "array",
+      description: "RequestRegisteredForDevice",
+      items: {
+        reference: "Request",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    RequestAffectsDevice: {
+      type: "array",
+      description: "RequestAffectsDevice",
+      items: {
+        reference: "Request",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    CartItemRegisteredForDevice: {
+      type: "array",
+      description: "CartItemRegisteredForDevice",
+      items: {
+        reference: "CartItem",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    ReservationDevice: {
+      type: "array",
+      description: "ReservationDevice",
+      items: {
+        reference: "Reservation",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceRegisteredAsFixedAsset: {
+      type: "array",
+      description: "DeviceRegisteredAsFixedAsset",
+      items: {
+        reference: "FixedAsset",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceLink2: {
+      type: "array",
+      description: "DeviceLink2",
+      items: {
+        reference: "SurveyResultAnalytic",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceLink3: {
+      type: "array",
+      description: "DeviceLink3",
+      items: {
+        reference: "SurveyResultAnalytic",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    DeviceLink1: {
+      type: "array",
+      description: "DeviceLink1",
+      items: {
+        reference: "SurveyResultAnalytic",
+        type: "object",
+      },
+      dataSource: "smax",
+    },
+    data_tags: {
+      type: "json",
+      description: "A tag is a label assigned to a resource.Each tag consists of a key and a value.",
+      displayName: "Tags",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "JSON",
+        "INDEX",
+      ],
+    },
+    smbios_biosversion: {
+      type: "string",
+      description: "[Summary]Shows the bios version of the SMBIOS. Get the value by command: wmic path Win32_BIOS get smbiosbiosversion",
+      displayName: "SMBIOSBiosVersion",
+      tags: [
+        "STATIC",
+      ],
+    },
+    vm_id: {
+      type: "string",
+      description: "[Summary]The id of VM.[Collection_Azure]The vm_id collected from RESTAPI response(/subscriptions/subscription_id/resourceGroups/resourceGroup_id/providers/Microsoft.Compute/virtualMachines/VM_name) value of \"properties:vmid\"",
+      displayName: "VM ID",
+    },
+    vmware_resource_id: {
+      type: "string",
+      description: "The resource identifier defined by VMware VROPS. Call API of VROPS (value of \"idetifier\") : /api/resources/",
+      displayName: "VMware Resource ID",
+    },
+    vmware_moref: {
+      type: "string",
+      description: "VMware Managed Object Reference (MORef)",
+      displayName: "ManagedObjectReference",
+    },
+    VMwareHostResources: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_host_resource",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+        direction: "to",
+      },
+    },
+    DataCenters: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_datacenter",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    IBMLMTLicenses: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "ilmt_license",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    IBMLMTLicenseConfig: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "ilmt_license_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    LicenseCoreFactor: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "core_factor",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    ChargebackCurrency: {
+      type: "string",
+      description: "ChargebackCurrency",
+      dataSource: "smax",
+      displayName: "Currency",
+      originalType: "ENUM",
+    },
+    RecurringCost: {
+      type: "number",
+      description: "RecurringCost",
+      dataSource: "smax",
+      displayName: "Recurring charge",
+      originalType: "DOUBLE",
+    },
+    UUID: {
+      type: "string",
+      description: "UUID",
+      dataSource: "smax",
+      displayName: "UUID",
+      originalType: "SMALL_TEXT",
+    },
+    RecurringPeriod: {
+      type: "string",
+      description: "RecurringPeriod",
+      dataSource: "smax",
+      displayName: "Recurring period",
+      originalType: "ENUM",
+    },
+    InitialCost: {
+      type: "number",
+      description: "InitialCost",
+      dataSource: "smax",
+      displayName: "Initial charge",
+      originalType: "DOUBLE",
+    },
+    cloud_vm_display_name: {
+      type: "string",
+      description: "This attribute is the display name of vm instance on cloud. For AWS EC2 instances, this attribute comes from the Name Tag, and length limit is 256. For Azure and Google Cloud VM instances, this attribute comes from the name field, and the length limit is 63.",
+      displayName: "Cloud VM Display Name",
+      tags: [
+        "STATIC",
+      ],
+    },
+    DockerContainers: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "docker_container",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    DockerDaemons: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "docker_daemon",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    Dockers: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "docker",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    TenantsUses: {
+      type: "array",
+      description: "The IDs of the Tenants who are associated with the CI",
+      displayName: "Consumer Tenants",
+      items: {
+        type: "string",
+      },
+    },
+    TenantOwner: {
+      type: "string",
+      description: "The Tenant Owner ID",
+      displayName: "Owner Tenant",
+      tags: [
+        "DDM_NO_VALIDATION",
+      ],
+    },
+    zone_list: {
+      type: "array",
+      description: "List of management zones in which the CI is discovered",
+      displayName: "Zone List",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SIMPLE_FAST_LIST",
+        "INDEX",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    discovery_state: {
+      type: "string",
+      description: "State of UD discovery",
+      displayName: "Discovery State",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    metaphase: {
+      type: "string",
+      description: "Meta Phase of a CI in SMAX. The attribute is owned by SMAX exclusively",
+      displayName: "Meta Phase",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    AzureResourceGroups: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "azure_resource_group",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    AzureConfigs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "azure_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    GoogleCloudProjects: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "googlecloudproject",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    GoogleCloudSnapshots: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_snapshot",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+      },
+    },
+    GoogleCloudInstanceGroups: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_instance_group",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    GoogleCloudVMConfigs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_vm_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    GoogleCloudNetworks: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_network",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    GoogleCloudSubnets: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_subnet",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    GoogleCloudDataClusters: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_dataproc_cluster",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    GoogleCloudServiceAccounts: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "googlecloudserviceaccount",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    GoogleCloudFirewall: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_firewall",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+      },
+    },
+    GoogleCloudImage: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_image",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+      },
+    },
+    GoogleCloudRoute: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "google_cloud_route",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+      },
+    },
+	VmwareVirtualCenters: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_virtual_center",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+	Nodes: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "node",
+      },
+      relation: {
+        relationName: "dependency",
+        kind: "ci_relation",
+      },
+    },
+	CommunicationEndpoints: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "communication_endpoint",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+	VmwareDasConfigs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_das_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+	VmwareDrsConfigs: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "vmware_drs_config",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+	NodeElements: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "node_element",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+	IpServiceEndpoints: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "ip_service_endpoint",
+      },
+      relation: {
+        relationName: "composition",
+        kind: "ci_relation",
+      },
+    },
+    monitor_state: {
+      type: "string",
+      description: "Monitor State of a CI in OpsB. The attribute is owned by OpsB exclusively.",
+      displayName: "Monitor State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    provision_state: {
+      type: "string",
+      description: "Provision State of a CI in HCMX. The attribute is owned by HCMX exclusively.",
+      displayName: "Provision State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    CreationSource: {
+      type: "string",
+      description: "CreationSource",
+      dataSource: "smax",
+    },
+    ci_lifecycle_state: {
+      type: "string",
+      description: "The attribute indicates the overall Lifecycle state of a CI when using enhanced lifecycle solution",
+      displayName: "CI Lifecycle State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "CALCULATED_LIFECYCLE",
+      ],
+    },
+    regulatory_details: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the regulatory details. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Regulatory Details",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    regulatory_status: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the regulatory status. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Regulatory Status",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    vulnerability_details: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the vulnerability details. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Vulnerability Details",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    vulnerability_status: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the vulnerability status. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Vulnerability Status",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    PurchaseOrder: {
+      type: "object",
+      description: "PurchaseOrder",
+      reference: "PurchaseOrder",
+      messageResourceKey: "Device.Property.PurchaseOrder",
+      originalType: "ENTITY_LINK",
+      dataSource: "smax",
+    },
+    NativeSACMContext: {
+      type: "string",
+      description: "NativeSACMContext",
+      messageResourceKey: "Device.Property.NativeSACMContext",
+      originalType: "LARGE_TEXT",
+      dataSource: "smax",
+    },
+    ProductLifetime: {
+      type: "number",
+      description: "ProductLifetime",
+      messageResourceKey: "Device.Property.ProductLifetime",
+      originalType: "DOUBLE",
+      dataSource: "smax",
+    },
+    TotalEmissions: {
+      type: "number",
+      description: "TotalEmissions",
+      messageResourceKey: "Device.Property.TotalEmissions",
+      originalType: "DOUBLE",
+      dataSource: "smax",
+    },
+    EmissionRecurringPeriod: {
+      type: "string",
+      description: "EmissionRecurringPeriod",
+      messageResourceKey: "Device.Property.EmissionRecurringPeriod",
+      originalType: "ENUM",
+      dataSource: "smax",
+    },
+    Unit: {
+      type: "string",
+      description: "Unit",
+      messageResourceKey: "Device.Property.Unit",
+      originalType: "ENUM",
+      dataSource: "smax",
+    },
+    LifetimeUsageEmissions: {
+      type: "number",
+      description: "LifetimeUsageEmissions",
+      messageResourceKey: "Device.Property.LifetimeUsageEmissions",
+      originalType: "DOUBLE",
+      dataSource: "smax",
+    },
+    ExternalProcessReference: {
+      type: "string",
+      description: "ExternalProcessReference",
+      messageResourceKey: "Device.Property.ExternalProcessReference",
+      originalType: "SMALL_TEXT",
+      dataSource: "smax",
+    },
+    EnergyDemand: {
+      type: "number",
+      description: "EnergyDemand",
+      messageResourceKey: "Device.Property.EnergyDemand",
+      originalType: "DOUBLE",
+      dataSource: "smax",
+    },
+    RecurringUsageEmissions: {
+      type: "number",
+      description: "RecurringUsageEmissions",
+      messageResourceKey: "Device.Property.RecurringUsageEmissions",
+      originalType: "DOUBLE",
+      dataSource: "smax",
+    },
+    EmbodiedEmissions: {
+      type: "number",
+      description: "EmbodiedEmissions",
+      messageResourceKey: "Device.Property.EmbodiedEmissions",
+      originalType: "DOUBLE",
+      dataSource: "smax",
+    },
+  },
+  defaultDataSource: "ucmdb",
+  dataSources: {
+    ucmdb: {
+      mappingType: "node",
+    },
+    smax: {
+      mappingType: "Device",
+    },
+  },
+  tags: [
+    "AVAILABLE_IN_MODELLING_WIDGET_CMDB",
+    "FILTER_ANALYSIS",
+    "BDM_SCOPE",
+    "RANDOM_GENERATED_ID_CLASS",
+    "DDM_REQUIRED_TOPOLOGY",
+    "PM_SUSPECT",
+    "CMS_BROWSER_SEARCH",
+    "AVAILABLE_IN_MODELLING_WIDGET_SACM",
+  ],
+}

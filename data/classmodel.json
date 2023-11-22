@@ -1,0 +1,285 @@
+{
+  "simpleTopoList": [
+    { "classname": "business_element",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "containment": [{
+            "classname": "business_element",
+            "attributes": [
+              "all"
+            ]
+        }]
+      }
+    },
+    { "classname": "business_element",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "containment": [{
+          "classname": "infrastructure_element",
+          "attributes": [
+            "all"
+          ]
+        }]
+      }
+    },
+    { "classname": "node",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "containment": [{
+          "classname": "ip_address",
+          "attributes": [
+            "all"
+          ]
+        }],
+        "composition": [
+          {
+          "classname": "interface",
+          "attributes": [
+            "all"
+          ]
+          },
+          {
+            "classname": "cpu",
+            "attributes": [
+              "all"
+            ]
+          },
+          {
+            "classname": "ip_service_endpoint",
+            "attributes": [
+              "all"
+            ]
+          },
+          {
+            "classname": "running_software",
+            "attributes": [
+              "all"
+            ],
+            "related": {
+              "usage": [{
+                "classname": "ip_service_endpoint",
+                "attributes": [
+                  "all"
+                ]
+              }],
+              "composition": [{
+                "classname": "applicationresource",
+                "attributes": [
+                  "all"
+                ]
+              }]
+            }
+          }
+        ]
+      }
+    },
+    { "classname": "node",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "containment": [{
+          "classname": "ip_address",
+          "attributes": [
+            "all"
+          ]
+        }],
+        "composition": [
+          {
+            "classname": "interface",
+            "attributes": [
+              "all"
+            ]
+          },
+          {
+            "classname": "vmware_virtual_center",
+            "attributes": [
+              "all"
+            ],
+            "related": {
+              "manage": [
+                { "classname": "vmware_datacenter",
+                  "attributes": [
+                    "all"
+                  ],
+                  "related": {
+                    "containment": [{
+                      "classname": "hypervisor",
+                      "attributes": [
+                        "all"
+                      ],
+                      "related": {
+                        "composition": [{
+                          "classname": "vmware_dpm_config",
+                          "attributes": [
+                            "all"
+                          ]
+                        }],
+                        "execution_environment": [{
+                          "classname": "node",
+                          "attributes": [
+                            "all"
+                          ]
+                        }]
+                      }
+                    }],
+                    "composition": [
+                      { "classname": "vmware_cluster",
+                        "attributes": [
+                          "all"
+                        ],
+                        "related": {
+                          "containment": [{
+                            "classname": "node",
+                            "attributes": [
+                              "all"
+                            ]
+                          }],
+                          "membership": [{
+                            "classname": "hypervisor",
+                            "attributes": [
+                              "all"
+                            ]
+                          }],
+                          "composition": [{
+                            "classname": "vmware_resource_pool",
+                            "attributes": [
+                              "all"
+                            ],
+                            "related": {
+                              "containment": [
+                                {
+                                  "classname": "node",
+                                  "attributes": [
+                                    "all"
+                                  ],
+                                  "related":{
+                                    "composition": [
+                                      {
+                                        "classname": "vmware_das_config",
+                                        "attributes": [
+                                          "all"
+                                        ]
+                                      },
+                                      {
+                                        "classname": "vmware_drs_config",
+                                        "attributes": [
+                                          "all"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    { "classname": "webservice",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "composition": [{
+          "classname": "webservice_operation",
+          "attributes": [
+            "all"
+          ]
+        }],
+        "dependency": [{
+          "classname": "uri_endpoint",
+          "attributes": [
+            "all"
+          ]
+        },
+          {
+            "classname": "webmodule",
+            "attributes": [
+              "all"
+            ]
+          }]
+      }
+    },
+    { "classname": "j2eedomain",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "membership": [{
+          "classname": "j2eeserver",
+          "attributes": [
+            "all"
+          ]
+        }],
+        "composition": [{
+          "classname": "j2eecluster",
+          "attributes": [
+            "all"
+          ]
+        },
+          {
+            "classname": "applicationresource",
+            "attributes": [
+              "all"
+            ],
+            "related": {
+              "composition": [
+                {
+                  "classname": "applicationresource",
+                  "attributes": [
+                    "all"
+                  ]
+                }
+              ]
+            }
+          }]
+      }
+    },
+    { "classname": "ip_subnet",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "membership": [{
+          "classname": "node",
+          "attributes": [
+            "all"
+          ],
+          "related": {
+            "composition": [
+              {
+                "classname": "communication_endpoint",
+                "attributes": [
+                  "all"
+                ]
+              }
+            ],
+            "dependency": [
+              {
+                "classname": "node",
+                "attributes": [
+                  "all"
+                ]
+              }
+            ]
+          }
+        }]
+      }
+    }
+  ]
+}

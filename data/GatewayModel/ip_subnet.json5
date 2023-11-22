@@ -1,0 +1,795 @@
+{
+  title: "ip_subnet",
+  idFieldName: "global_id",
+  description: "IpSubnet",
+  type: "object",
+  properties: {
+    global_id: {
+      type: "string",
+      description: "A globally unique identifier for the entity represented by the object",
+      displayName: "Global Id",
+      tags: [
+        "BDM_SCOPE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    ack_cleared_time: {
+      type: "bigint",
+      description: "ack_cleared_time",
+      displayName: "ack_cleared_time",
+      tags: [
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_actualdeletetime: {
+      type: "date",
+      description: "When will this CI be deleted",
+      displayName: "Actual Delete Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_adminstate: {
+      type: "string",
+      description: "Admin State",
+      displayName: "Admin State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_allow_auto_discovery: {
+      type: "boolean",
+      description: "Allow CI Update",
+      displayName: "Allow CI Update",
+      tags: [
+        "DASH_ATTRIBUTE",
+      ],
+    },
+    bit_position: {
+      type: "integer",
+      description: "Bit Position",
+      displayName: "Bit Position",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    bitmap_id: {
+      type: "integer",
+      description: "Bitmap ID",
+      displayName: "Bitmap ID",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    calculated_id: {
+      type: "string",
+      description: "Calculated ID",
+      displayName: "Calculated ID",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+      ],
+    },
+    root_candidatefordeletetime: {
+      type: "date",
+      description: "When will this CI be warned about deleting",
+      displayName: "Candidate For Deletion Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_changecorrstate: {
+      type: "string",
+      description: "Change State",
+      displayName: "Change Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_changeisnew: {
+      type: "boolean",
+      description: "Change State",
+      displayName: "Change Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_changestate: {
+      type: "string",
+      description: "Change State",
+      displayName: "Change State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    root_class: {
+      type: "string",
+      description: "Class name of the CI",
+      displayName: "CI Type",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    city: {
+      type: "string",
+      description: "City location",
+      displayName: "City",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    cloud_resource_identifier: {
+      type: "string",
+      description: "Used as unique identifier for all cloud resource. For Oracle Cloud collected by Oracle REST API: /network/v1/ipnetwork/{container}/",
+      displayName: "Cloud Resource Identifier",
+    },
+    codepage: {
+      type: "string",
+      description: "System suported CodePage",
+      displayName: "CodePage",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_container: {
+      type: "string",
+      description: "Container CI of this CI",
+      displayName: "Container",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "INDEX",
+      ],
+    },
+    contextmenu: {
+      type: "array",
+      description: "Context menu",
+      displayName: "Context Menu",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "NOT_CHANGE_MONITORED",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "LIST",
+      ],
+    },
+    country: {
+      type: "string",
+      description: "Country or province location",
+      displayName: "Country or Province",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_source: {
+      type: "string",
+      description: "Created By",
+      displayName: "Created By",
+      tags: [
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    create_time: {
+      type: "date",
+      description: "When was this CI created",
+      displayName: "Created Time",
+      tags: [
+        "BDM_SCOPE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    description: {
+      type: "string",
+      description: "Description",
+      displayName: "Description",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    digest: {
+      type: "string",
+      description: "Digest",
+      displayName: "Digest",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    display_label: {
+      type: "string",
+      description: "Used as calc attribute for display",
+      displayName: "Display Label",
+      tags: [
+        "BDM_SCOPE",
+        "DASH_ATTRIBUTE",
+        "ASSET",
+        "INDEX",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+        "CALCULATED_ATTRIBUTE",
+      ],
+    },
+    document_list: {
+      type: "string",
+      description: "Documents",
+      displayName: "Documents",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "LIST",
+      ],
+    },
+    root_enableageing: {
+      type: "boolean",
+      description: "Is aging enabled",
+      displayName: "Enable Aging",
+    },
+    data_externalid: {
+      type: "string",
+      description: "external source id: snmp index, data sources index etc.",
+      displayName: "External ID",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    user_label: {
+      type: "string",
+      description: "Used as user label",
+      displayName: "User Label",
+    },
+    ip_address_type: {
+      type: "string",
+      description: "The type of the IP Address (e.g. IPv4, IPv6)",
+      displayName: "IpAddressType",
+      tags: [
+        "BDM_SCOPE",
+        "IP_ADDRESS_TYPE",
+      ],
+    },
+    ip_address_value: {
+      type: "string",
+      description: "This represents the value of an IPv4 or IPv6 address.  Both IPv6 and IPv4 address values are kept in an IPv6 address format.  IPv4 addresses are mapped to IPv6 address format as as per the guidelines in http://www.ietf.org/rfc/rfc4291.txt.  Examples: * ABCD:EF01:2345:6789:ABCD:EF01:2345:6789 *Note: The Ipv6 addresses are fully specified, simplification rules (like omitting leading zeros or dropping parts of the address by using '::' will not be applied). ",
+      displayName: "IpAddressValue",
+      tags: [
+        "BDM_SCOPE",
+        "IP_ADDRESS_LONG_FORMAT",
+      ],
+    },
+    ack_id: {
+      type: "string",
+      description: "ack_id",
+      displayName: "ack_id",
+      tags: [
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_iscandidatefordeletion: {
+      type: "boolean",
+      description: "Is candidate for deletion",
+      displayName: "Is Candidate For Deletion",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    network_ismanaged: {
+      type: "boolean",
+      description: "Is Managed By Auto Discovery?",
+      displayName: "Is Managed",
+    },
+    isvirtual: {
+      type: "boolean",
+      description: "Is Virtual",
+      displayName: "Is Virtual",
+    },
+    language: {
+      type: "string",
+      description: "System suported language",
+      displayName: "Language",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_lastaccesstime: {
+      type: "date",
+      description: "When was this CI last accessed",
+      displayName: "Last Access Time",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_by: {
+      type: "string",
+      description: "Who discovered this CI",
+      displayName: "LastDiscoveredBy",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_by_probe: {
+      type: "string",
+      description: "Which probe discovered this CI",
+      displayName: "LastDiscoveredByProbe",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_discovered_time: {
+      type: "date",
+      description: "When was this CI discovered",
+      displayName: "LastDiscoveredTime",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    data_updated_by: {
+      type: "string",
+      description: "LastModifiedBy",
+      displayName: "LastModifiedBy",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    last_modified_time: {
+      type: "date",
+      description: "When was this CI last updated",
+      displayName: "LastModifiedTime",
+      tags: [
+        "BDM_SCOPE",
+        "NOT_CHANGE_MONITORED",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    name: {
+      type: "string",
+      description: "Name",
+      displayName: "Name",
+      tags: [
+        "BDM_SCOPE",
+        "IP_ADDRESS_SHORT_FORMAT",
+      ],
+    },
+    network_broadcastaddress: {
+      type: "string",
+      description: "Network Broadcast Address",
+      displayName: "Network Broadcast Address",
+    },
+    network_netclass: {
+      type: "string",
+      description: "The class of the network by the net mask (a,b,c)",
+      displayName: "Network Class",
+    },
+    network_count: {
+      type: "integer",
+      description: "Network count of membered ips",
+      displayName: "Network Count",
+    },
+    network_managed: {
+      type: "boolean",
+      description: "Managed by the user",
+      displayName: "Network Managed",
+      tags: [
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    network_netmask: {
+      type: "string",
+      description: "The value of the mask is an IP address with all the network bits set to 1 and all the hosts bits set to 0.",
+      displayName: "Network Mask",
+    },
+    network_probename: {
+      type: "string",
+      description: "The Name of the Probe which created the Netwrok object",
+      displayName: "Network Probe Name",
+    },
+    network_nettype: {
+      type: "string",
+      description: "The type ot the network",
+      displayName: "Network Type",
+    },
+    data_note: {
+      type: "string",
+      description: "Note",
+      displayName: "Note",
+    },
+    data_operationcorrstate: {
+      type: "string",
+      description: "Operation State",
+      displayName: "Operation Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_operationisnew: {
+      type: "boolean",
+      description: "Operation State",
+      displayName: "Operation Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_operationstate: {
+      type: "string",
+      description: "Operation State",
+      displayName: "Operation State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_origin: {
+      type: "string",
+      description: "Origin",
+      displayName: "Origin",
+      tags: [
+        "BLE_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    credentials_id: {
+      type: "string",
+      description: "Reference to the credentials dictinary entry",
+      displayName: "Reference to the credentials dictionary entry",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_iconproperties: {
+      type: "string",
+      description: "root_iconproperties",
+      displayName: "root_iconproperties",
+      tags: [
+        "APPLICATIVE_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "INTERNAL_ATTRIBUTE",
+      ],
+    },
+    routing_domain: {
+      type: "string",
+      description: "This is a continuous region of an IP network within which routing is possible without any intervening Network Address Translation (NAT) devices. The literal \"$DefaultDomain\" should be used if the routing domain is unknown, unspecified, or known to be the default domain.",
+      displayName: "RoutingDomain",
+      tags: [
+        "REPLACE_VALUE_WITH_VALUE_FROM_SYSTEM_PROPERTY",
+        "BDM_SCOPE",
+        "ASSET",
+        "CMS_CI_PROPERTIES_LAYOUT",
+      ],
+    },
+    sd_type: {
+      type: "string",
+      description: "SD Type",
+      displayName: "SD Type",
+      tags: [
+        "INDEX",
+      ],
+    },
+    state: {
+      type: "string",
+      description: "State location",
+      displayName: "State",
+      tags: [
+        "HANDLED_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    is_save_persistency: {
+      type: "boolean",
+      description: "Store KPI history for over time reports",
+      displayName: "Store KPI History For Over Time Reports",
+      tags: [
+        "BLE_ATTRIBUTE",
+        "DASH_ATTRIBUTE",
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    root_system: {
+      type: "string",
+      description: "System",
+      displayName: "System",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_testcorrstate: {
+      type: "string",
+      description: "Test State",
+      displayName: "Test Corr State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_testisnew: {
+      type: "boolean",
+      description: "Test State",
+      displayName: "Test Is New",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    data_teststate: {
+      type: "string",
+      description: "Test State",
+      displayName: "Test State",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "DEPRECATION",
+      ],
+    },
+    track_changes: {
+      type: "boolean",
+      description: "Track configuration changes",
+      displayName: "Track Configuration Changes",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+      ],
+    },
+    ip_prefix_length: {
+      type: "integer",
+      description: "The prefix length is the number of contiguous bits that are turned on in any IP address be it a subnet address or just an IP address.",
+      displayName: "IpPrefixLength",
+      tags: [
+        "BDM_SCOPE",
+      ],
+    },
+    cmdb_id: {
+      type: "string",
+      description: "cmdb id",
+    },
+    data_tags: {
+      type: "json",
+      description: "A tag is a label assigned to a resource.Each tag consists of a key and a value.",
+      displayName: "Tags",
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "JSON",
+        "INDEX",
+      ],
+    },
+    TenantsUses: {
+      type: "array",
+      description: "The IDs of the Tenants who are associated with the CI",
+      displayName: "Consumer Tenants",
+      items: {
+        type: "string",
+      },
+    },
+    TenantOwner: {
+      type: "string",
+      description: "The Tenant Owner ID",
+      displayName: "Owner Tenant",
+      tags: [
+        "DDM_NO_VALIDATION",
+      ],
+    },
+    service_delegations: {
+      type: "string",
+      description: "Populated for Azure Subnets,with a list of PaaS Service types that need to be injected into the network. [Azure Collection] mapped from json[properties][delegations][name]",
+      displayName: "Service Delegations",
+    },
+    zone_list: {
+      type: "array",
+      description: "List of management zones in which the CI is discovered",
+      displayName: "Zone List",
+      items: {
+        type: "string",
+      },
+      tags: [
+        "NOT_CHANGE_MONITORED",
+        "SIMPLE_FAST_LIST",
+        "INDEX",
+        "SUPPRESS_LAST_MODIFIED_TIME",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    discovery_state: {
+      type: "string",
+      description: "State of UD discovery",
+      displayName: "Discovery State",
+      tags: [
+        "HIDDEN_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    metaphase: {
+      type: "string",
+      description: "Meta Phase of a CI in SMAX. The attribute is owned by SMAX exclusively",
+      displayName: "Meta Phase",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    AzureVirtualNetworks: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "azure_virtual_network",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    AzureNatGateways: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "azure_nat_gateway",
+      },
+      relation: {
+        relationName: "usage",
+        kind: "ci_relation",
+        direction: "from",
+      },
+    },
+    AzureNetworkSecurityGroups: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "azure_network_security_group",
+      },
+      relation: {
+        relationName: "dependency",
+        kind: "ci_relation",
+      },
+    },
+	Nodes: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "node",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+      },
+    },
+    monitor_state: {
+      type: "string",
+      description: "Monitor State of a CI in OpsB. The attribute is owned by OpsB exclusively.",
+      displayName: "Monitor State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    provision_state: {
+      type: "string",
+      description: "Provision State of a CI in HCMX. The attribute is owned by HCMX exclusively.",
+      displayName: "Provision State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "CMS_CI_PROPERTIES_LAYOUT",
+        "READ_ONLY_ATTRIBUTE",
+      ],
+    },
+    ci_lifecycle_state: {
+      type: "string",
+      description: "The attribute indicates the overall Lifecycle state of a CI when using enhanced lifecycle solution",
+      displayName: "CI Lifecycle State",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+        "CMS_SEARCHABLE_ATTRIBUTE",
+        "READ_ONLY_ATTRIBUTE",
+        "CALCULATED_LIFECYCLE",
+      ],
+    },
+    regulatory_details: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the regulatory details. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Regulatory Details",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    regulatory_status: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the regulatory status. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Regulatory Status",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    vulnerability_details: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the vulnerability details. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Vulnerability Details",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+    vulnerability_status: {
+      type: "string",
+      description: "[Summary]This attribute is used by DCA, it represents the vulnerability status. [Collection]The value is pushed by DCA via CMSGateway",
+      displayName: "Vulnerability Status",
+      tags: [
+        "CMS_PROPERTIES_ATTRIBUTE",
+      ],
+    },
+  },
+  defaultDataSource: "ucmdb",
+  dataSources: {
+    ucmdb: {
+      mappingType: "ip_subnet",
+    },
+  },
+  interfaces: [
+    "CI",
+  ],
+  tags: [
+    "BDM_SCOPE",
+    "RANDOM_GENERATED_ID_CLASS",
+  ],
+}
