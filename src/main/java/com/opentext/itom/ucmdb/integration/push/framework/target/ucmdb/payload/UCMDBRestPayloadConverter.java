@@ -1,6 +1,5 @@
 package com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.payload;
 
-import com.opentext.itom.ucmdb.integration.push.configuration.SimpleTopology;
 import com.opentext.itom.ucmdb.integration.push.repo.PushRepository;
 import com.opentext.itom.ucmdb.integration.push.repo.model.AttributeTypeEnum;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ClassTypeMeta;
@@ -8,14 +7,13 @@ import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIBatch;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIEntity;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIRelation;
 import jakarta.annotation.PostConstruct;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
 
 import java.util.Date;
 import java.util.Set;
@@ -85,14 +83,14 @@ public class UCMDBRestPayloadConverter {
             case ATTR_TYPE_DATE -> {
                 DateTimeFormatter dateTimeFormatter = ISODateTimeFormat.dateTime().withZoneUTC();
                 try{
-                    rlt = new DateTime(new Date(Long.valueOf(attrValue))).toString(dateTimeFormatter);
+                    rlt = new DateTime(new Date(Long.parseLong(attrValue))).toString(dateTimeFormatter);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }
             case ATTR_TYPE_STRING,ATTR_TYPE_INTEGER -> {}
             default -> {}
-        };
+        }
         return rlt;
     }
 }

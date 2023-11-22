@@ -7,9 +7,9 @@ public class TableColumnMeta {
     private static final Logger log = LoggerFactory.getLogger(TableColumnMeta.class);
     public static final String RELATION_TABLE_ENDA_COLUMNNAME = "end1";
     public static final String RELATION_TABLE_ENDB_COLUMNNAME = "end2";
-    private String columnName;
-    private String columnType;
-    private int columnSize;
+    private final String columnName;
+    private final String columnType;
+    private final int columnSize;
 
     public TableColumnMeta(String columnName, String columnType, int columnSize) {
         if("VARCHAR".equals(columnType) && columnSize <= 0){

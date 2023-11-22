@@ -35,17 +35,6 @@ public class PushService {
     @Autowired
     CICachePersistenceService cacheService;
 
-    // used to decide when to start the delta push
-    private boolean firstPushFinished = false;
-
-    public boolean isFirstPushFinished() {
-        return firstPushFinished;
-    }
-
-    public void setFirstPushFinished(boolean firstPushFinished) {
-        this.firstPushFinished = firstPushFinished;
-    }
-
     public void init(){
         log.info("[Init]Initialize push service. Number of push thread: " + appConfig.getPushThreadPoolSize());
         // start thread pool

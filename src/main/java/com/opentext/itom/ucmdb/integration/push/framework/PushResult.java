@@ -7,7 +7,7 @@ public class PushResult {
     private Map<String, String> idMapping;
     private List<String> failureList;
     private Set<String> unPushedIdSet;
-    private long startTime;
+    private final long startTime;
     private long finishTime;
 
     public PushResult(long startTime, long finishTime) {
@@ -17,14 +17,14 @@ public class PushResult {
 
     public Map<String, String> getIdMapping() {
         if(idMapping == null){
-            idMapping = new HashMap<String, String>();
+            idMapping = new HashMap<>();
         }
         return idMapping;
     }
 
     public List<String> getFailureList() {
         if(failureList == null){
-            failureList = new ArrayList<String>();
+            failureList = new ArrayList<>();
         }
         return failureList;
     }
@@ -43,7 +43,7 @@ public class PushResult {
 
     public Set<String> getUnPushedIdSet() {
         if(unPushedIdSet == null){
-            unPushedIdSet = new HashSet<String>();
+            unPushedIdSet = new HashSet<>();
         }
         return unPushedIdSet;
     }

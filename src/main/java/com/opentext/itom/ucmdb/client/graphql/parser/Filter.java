@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Filter {
-    private boolean compositeFilter;
+    private final boolean compositeFilter;
 
     private String logicOperator;
 
@@ -41,7 +41,7 @@ public class Filter {
 
     public List<Filter> getSubFilters() {
         if(subFilters == null){
-            subFilters = new ArrayList<Filter>();
+            subFilters = new ArrayList<>();
         }
         return subFilters;
     }
@@ -51,7 +51,7 @@ public class Filter {
     }
 
     public String generatePayload() {
-        String rlt = null;
+        String rlt;
         if(compositeFilter){
             rlt = generateCompositeFilterPayload();
         } else{

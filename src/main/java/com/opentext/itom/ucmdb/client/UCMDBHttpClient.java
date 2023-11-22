@@ -1,9 +1,5 @@
 package com.opentext.itom.ucmdb.client;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opentext.itom.ucmdb.client.graphql.resultwrapper.ResponseWrapper;
-import com.opentext.itom.ucmdb.client.rest.wrapper.ClassModelClassWrapper;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -15,14 +11,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.EntityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -35,7 +28,7 @@ public class UCMDBHttpClient {
     }
 
     protected String doGet(String url) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
-        String result = null;
+        String result;
         HttpGet httpGet = new HttpGet(url);
         setHeaders(httpGet);
 
@@ -47,7 +40,7 @@ public class UCMDBHttpClient {
 
 
     protected String doPost(String url, String body) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
-        String result = null;
+        String result;
         HttpPost httpPost = new HttpPost(url);
         setHeaders(httpPost);
         StringEntity entity = new StringEntity(body);
@@ -61,8 +54,8 @@ public class UCMDBHttpClient {
     }
 
     private CloseableHttpResponse sendRequest(HttpRequestBase request) throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException, IOException {
-        CloseableHttpResponse httpResponse = null;
-        SSLContext sslcontext = SSLContexts.custom().loadTrustMaterial(null, new TrustAllStrategy()).build();;
+        CloseableHttpResponse httpResponse;
+        SSLContext sslcontext = SSLContexts.custom().loadTrustMaterial(null, new TrustAllStrategy()).build();
         SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslcontext, (s, sslSession) -> true);
         CloseableHttpClient c = HttpClients
                 .custom()
@@ -88,7 +81,7 @@ public class UCMDBHttpClient {
     }
 
     public String doGraphQLPost(String url, String body) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
-        String result = null;
+        String result;
         HttpPost httpPost = new HttpPost(url);
         httpPost.setHeader("X-Auth-Token", token);
         httpPost.setHeader("Content-Type", "application/json;charset=utf-8");

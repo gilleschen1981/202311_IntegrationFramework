@@ -26,10 +26,10 @@ public class GraphQLQueryBuilder {
     public static final String OP_GREATER_THAN = "gt";
     public static final String OP_LITTLE_THAN = "lt";
 
-    static PushRepository pushRepository;;
+    static PushRepository pushRepository;
     @Autowired
     PushRepository autoPushRepository;
-    static AppConfig appConfig;;
+    static AppConfig appConfig;
     @Autowired
     AppConfig autoAppConfig;
 
@@ -76,7 +76,7 @@ public class GraphQLQueryBuilder {
 
         // build subelement
         if(simpleTopology.getRelated() != null){
-            List<Element> subElementList = new ArrayList<Element>();
+            List<Element> subElementList = new ArrayList<>();
             for(String relationName : simpleTopology.getRelated().keySet()){
                 for(SimpleTopology child : simpleTopology.getRelated().get(relationName)){
                     Element subElement = loopElement(child);

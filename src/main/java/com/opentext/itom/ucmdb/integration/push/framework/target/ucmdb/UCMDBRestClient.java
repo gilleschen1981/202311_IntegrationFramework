@@ -1,12 +1,8 @@
 package com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opentext.itom.ucmdb.client.UCMDBConfiguration;
-import com.opentext.itom.ucmdb.client.rest.wrapper.ClassModelClassWrapper;
 import com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.payload.CIBatchPayload;
-import com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.payload.UCMDBRestPayloadConverter;
 import com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.response.DataInStatistics;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -65,7 +61,7 @@ public class UCMDBRestClient {
     }
 
     protected String doGet(String url) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
-        String result = null;
+        String result;
         HttpGet httpGet = new HttpGet(url);
         setHeaders(httpGet);
 
@@ -77,7 +73,7 @@ public class UCMDBRestClient {
 
 
     protected String doPost(String url, String body) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
-        String result = null;
+        String result;
         HttpPost httpPost = new HttpPost(url);
         setHeaders(httpPost);
         StringEntity entity = new StringEntity(body);
@@ -91,8 +87,8 @@ public class UCMDBRestClient {
     }
 
     private CloseableHttpResponse sendRequest(HttpRequestBase request) throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException, IOException {
-        CloseableHttpResponse httpResponse = null;
-        SSLContext sslcontext = SSLContexts.custom().loadTrustMaterial(null, new TrustAllStrategy()).build();;
+        CloseableHttpResponse httpResponse;
+        SSLContext sslcontext = SSLContexts.custom().loadTrustMaterial(null, new TrustAllStrategy()).build();
         SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslcontext, (s, sslSession) -> true);
         CloseableHttpClient c = HttpClients
                 .custom()

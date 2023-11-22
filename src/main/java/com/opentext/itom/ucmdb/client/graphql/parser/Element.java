@@ -56,7 +56,7 @@ public class Element {
 
     public List<Element> getSubElementList() {
         if(subElementList == null){
-            subElementList = new ArrayList<Element>();
+            subElementList = new ArrayList<>();
         }
         return subElementList;
     }
@@ -67,7 +67,7 @@ public class Element {
 
     public List<String> getAttributes() {
         if(attributes == null){
-            attributes = new ArrayList<String>();
+            attributes = new ArrayList<>();
         }
         return attributes;
     }

@@ -8,7 +8,7 @@ public class ClassMapping {
 
     public Map<String, String> getClassnameMapping() {
         if(classnameMapping == null){
-            classnameMapping = new HashMap<String, String>();
+            classnameMapping = new HashMap<>();
         }
         return classnameMapping;
     }

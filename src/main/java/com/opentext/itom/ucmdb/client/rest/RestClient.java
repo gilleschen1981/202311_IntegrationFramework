@@ -42,8 +42,7 @@ public class RestClient extends UCMDBHttpClient {
     public ClassModelClassWrapper getClassDefinitionByName(String classname) throws IOException, NoSuchAlgorithmException, KeyStoreException, KeyManagementException {
         String result = doGet(baseURL + "classModel/citypes/" + classname);
         ObjectMapper objectMapper = new ObjectMapper();
-        ClassModelClassWrapper wrapper = objectMapper.readValue(result, ClassModelClassWrapper.class);
-        return wrapper;
+        return objectMapper.readValue(result, ClassModelClassWrapper.class);
     }
 
 

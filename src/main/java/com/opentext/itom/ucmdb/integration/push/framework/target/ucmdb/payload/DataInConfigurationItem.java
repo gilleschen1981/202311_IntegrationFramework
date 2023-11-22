@@ -1,7 +1,5 @@
 package com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.payload;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 /**
  * Configuration Item (CI)
  */

@@ -8,7 +8,7 @@ public enum PushStatusEnum{
     ERROR("Error");
 
 
-    private String text;
+    private final String text;
 
     PushStatusEnum(String text) {
         this.text = text;

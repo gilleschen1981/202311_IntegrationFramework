@@ -18,7 +18,7 @@ public class TargetMeta {
 
     public Map<String, TableMeta> getTargetTableMetaMap() {
         if(targetTableMetaMap == null){
-            targetTableMetaMap = new HashMap<String, TableMeta>();
+            targetTableMetaMap = new HashMap<>();
         }
         return targetTableMetaMap;
     }

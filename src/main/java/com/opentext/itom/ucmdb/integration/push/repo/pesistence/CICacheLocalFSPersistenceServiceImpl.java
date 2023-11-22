@@ -66,6 +66,7 @@ public class CICacheLocalFSPersistenceServiceImpl implements CICachePersistenceS
                 try {
                     writer.close();
                 } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
             }
             log.info("[Cache]Store cache finished.");
@@ -88,25 +89,23 @@ public class CICacheLocalFSPersistenceServiceImpl implements CICachePersistenceS
             if(title == null){
                 return;
             }
-            pushRepository.setLastSuccessPushTimestamp(Long.valueOf(title.substring(6, 19)));
+            pushRepository.setLastSuccessPushTimestamp(Long.parseLong(title.substring(6, 19)));
             reader.readLine();
             String tempString;
             while((tempString = reader.readLine()) != null){
                 String[] splits = tempString.split(SEPARATOR);
-                int count = Integer.valueOf(splits[1]);
+                int count = Integer.parseInt(splits[1]);
                 String ciType = splits[0];
                 for(int i = 0; i < count; i++){
                     tempString = reader.readLine();
                     splits = tempString.split(SEPARATOR);
-                    long timestamp = Long.valueOf(splits[1]);
+                    long timestamp = Long.parseLong(splits[1]);
                     // idMap
                     ciCache.getCiIdMapping().put(splits[0], splits[2]);
                     // typeMap
                     ciCache.getIdTypeMap().put(splits[0], ciType);
-                    Set<String> idSet = ciCache.getTypeIdMap().getOrDefault(ciType, new HashSet<String>());
-                    if(!idSet.contains(splits[0])){
-                        idSet.add(splits[0]);
-                    }
+                    Set<String> idSet = ciCache.getTypeIdMap().getOrDefault(ciType, new HashSet<>());
+                    idSet.add(splits[0]);
                     ciCache.getTypeIdMap().put(ciType, idSet);
                     // timeMap
                     ciCache.getTimestampMap().put(splits[0], timestamp);
@@ -120,6 +119,7 @@ public class CICacheLocalFSPersistenceServiceImpl implements CICachePersistenceS
                 try {
                     reader.close();
                 } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
             }
             log.info("[Cache]Load cache finished.");

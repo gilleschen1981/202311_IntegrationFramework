@@ -5,17 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opentext.itom.ucmdb.client.UCMDBConfiguration;
 import com.opentext.itom.ucmdb.client.UCMDBHttpClient;
 import com.opentext.itom.ucmdb.client.graphql.resultwrapper.ResponseWrapper;
-import com.opentext.itom.ucmdb.integration.push.framework.PushRunner;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 
 @Component()
 public class GraphQLClient extends UCMDBHttpClient {
@@ -51,7 +45,7 @@ public class GraphQLClient extends UCMDBHttpClient {
         requestBody.put("query", queryJson.getString("query"));
         requestBody.put("variables", variables);
 
-        log.debug("[GraqhQLCall]Body:" + requestBody.toString());
+        log.debug("[GraqhQLCall]Body:" + requestBody);
         String result = doGraphQLPost(baseURL + ucmdbConf.getCustomerId() + "/graphql", requestBody.toString());
         log.debug("[GraqhQLCall]Response:" + result);
         ObjectMapper objectMapper = new ObjectMapper();

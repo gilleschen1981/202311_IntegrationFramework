@@ -2,14 +2,14 @@ package com.opentext.itom.ucmdb.integration.push;
 
 import com.opentext.itom.ucmdb.client.UCMDBClient;
 import com.opentext.itom.ucmdb.client.rest.wrapper.ClassModelClassWrapper;
-import com.opentext.itom.ucmdb.integration.push.configuration.SimpleTopology;
 import com.opentext.itom.ucmdb.integration.push.configuration.ClassmodelConfigRepo;
+import com.opentext.itom.ucmdb.integration.push.configuration.SimpleTopology;
+import com.opentext.itom.ucmdb.integration.push.framework.target.PushClient;
 import com.opentext.itom.ucmdb.integration.push.repo.PushRepository;
-import com.opentext.itom.ucmdb.integration.push.repo.model.ClassTypeMeta;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ClassModelWrappeConverter;
+import com.opentext.itom.ucmdb.integration.push.repo.model.ClassTypeMeta;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ModelConverter;
 import com.opentext.itom.ucmdb.integration.push.repo.model.TargetMeta;
-import com.opentext.itom.ucmdb.integration.push.framework.target.PushClient;
 import com.opentext.itom.ucmdb.integration.push.repo.pesistence.CICachePersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +18,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Map;
 
 
 @Component
@@ -88,7 +85,7 @@ public class PushInitializer implements ApplicationRunner {
             log.error("[Init]Unimplemented.");
             System.exit(1);
         }
-        log.info("[Init]Load classmodel detail from source UCMDB, success. Number of ClassType: ", pushRepo.getClassTypeMetaMap().size());
+        log.info("[Init]Load classmodel detail from source UCMDB, success. Number of ClassType: " + pushRepo.getClassTypeMetaMap().size());
 
         // init the push service
         pushService.init();

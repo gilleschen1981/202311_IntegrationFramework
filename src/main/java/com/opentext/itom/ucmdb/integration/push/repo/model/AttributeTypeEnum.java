@@ -9,7 +9,7 @@ public enum AttributeTypeEnum {
     ATTR_TYPE_ENUM("ENUM"),
     ATTR_TYPE_INTEGER("INTEGER");
 
-    private String text;
+    private final String text;
 
     AttributeTypeEnum(String text) {
         this.text = text;

@@ -9,7 +9,7 @@ import java.util.Map;
 public class ModelConverter {
     private static final Logger log = LoggerFactory.getLogger(ModelConverter.class);
     public static TableMeta convertClassType2Table(ClassTypeMeta meta) {
-        TableMeta rlt = null;
+        TableMeta rlt;
         if(meta.isRelation()){
             rlt = new TableMeta(TableMeta.generateRelationTableName(meta.getClassName(), meta.getEnd1Class(), meta.getEnd2Class()));
             TableColumnMeta column  = new TableColumnMeta(TableColumnMeta.RELATION_TABLE_ENDA_COLUMNNAME, "VARCHAR", 20);
@@ -31,7 +31,7 @@ public class ModelConverter {
     }
 
     private static String convertAttrType2ColumnType(AttributeTypeEnum attrType) {
-        String rlt = null;
+        String rlt;
         switch (attrType){
             case ATTR_TYPE_STRING -> rlt = "VARCHAR";
             case ATTR_TYPE_INTEGER -> rlt = "INTEGER";
@@ -48,7 +48,7 @@ public class ModelConverter {
     public static String convertColumnMeta2TableType(TableColumnMeta columnMeta) {
         String rlt = columnMeta.getColumnName() + "\t";
         switch (columnMeta.getColumnType()){
-            case "VARCHAR"-> rlt += columnMeta.getColumnType() + "(" + String.valueOf(columnMeta.getColumnSize()) + ")";
+            case "VARCHAR"-> rlt += columnMeta.getColumnType() + "(" + columnMeta.getColumnSize() + ")";
             case "INTEGER", "BOOLEAN", "DATE" -> rlt += columnMeta.getColumnType();
             default -> {rlt = ""; log.error("[CONVERT]Unrecognized table column type: " + columnMeta.getColumnType());}
         }
@@ -59,7 +59,7 @@ public class ModelConverter {
         if(classTypeMetaMap == null){
             return null;
         }
-        Map<String, TableMeta> rlt = new HashMap<String, TableMeta>();
+        Map<String, TableMeta> rlt = new HashMap<>();
         for(String key : classTypeMetaMap.keySet()){
             ClassTypeMeta classTypeMeta = classTypeMetaMap.get(key);
             TableMeta tableMeta = convertClassType2Table(classTypeMeta);

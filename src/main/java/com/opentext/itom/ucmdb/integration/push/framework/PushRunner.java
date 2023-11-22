@@ -13,10 +13,10 @@ import org.slf4j.LoggerFactory;
 
 public class PushRunner implements Runnable{
     private static final Logger log = LoggerFactory.getLogger(PushRunner.class);
-    private PushRepository pushRepository;
-    private UCMDBGraphQLClient graphQLClient;
-    private PushClient pushClient;
-    private AppConfig appConfig;
+    private final PushRepository pushRepository;
+    private final UCMDBGraphQLClient graphQLClient;
+    private final PushClient pushClient;
+    private final AppConfig appConfig;
     private boolean running = true;
 
     public PushRunner(PushRepository pushRepository, UCMDBGraphQLClient graphQLClient, PushClient pushClient, AppConfig appConfig) {

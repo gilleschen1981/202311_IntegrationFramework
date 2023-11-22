@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.management.relation.Relation;
-import java.util.HashSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,7 +19,6 @@ public class PushClientTest {
     @Test
     void testConnection(){
         ucmdbPushClient.testConnection();
-        return;
     }
 
     @Test

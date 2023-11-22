@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassTypeMeta {
-    private String className;
+    private final String className;
     private boolean isRelation = false;
     private String End1Class = null;
     private String End2Class = null;
@@ -44,7 +44,7 @@ public class ClassTypeMeta {
 
     public List<AttributeMeta> getAttributeMetaList() {
         if(attributeMetaList == null){
-            attributeMetaList = new ArrayList<AttributeMeta>();
+            attributeMetaList = new ArrayList<>();
         }
         return attributeMetaList;
     }

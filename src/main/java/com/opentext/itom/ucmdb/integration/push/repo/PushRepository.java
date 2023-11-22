@@ -8,14 +8,11 @@ import com.opentext.itom.ucmdb.integration.push.repo.model.ClassTypeMeta;
 import com.opentext.itom.ucmdb.integration.push.repo.model.TargetMeta;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIBatch;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIEntity;
-import com.opentext.itom.ucmdb.integration.push.repo.pesistence.CICachePersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -105,7 +102,7 @@ public class PushRepository {
 
     public Map<SimpleTopology, PushStatus> getPushStatusMap() {
         if(pushStatusMap == null){
-            pushStatusMap = new HashMap<SimpleTopology, PushStatus>();
+            pushStatusMap = new HashMap<>();
         }
         return pushStatusMap;
     }

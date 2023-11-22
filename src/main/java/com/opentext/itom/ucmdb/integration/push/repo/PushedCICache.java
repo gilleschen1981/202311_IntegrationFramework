@@ -1,7 +1,5 @@
 package com.opentext.itom.ucmdb.integration.push.repo;
 
-import com.opentext.itom.ucmdb.integration.push.framework.PushResult;
-import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIBatch;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,41 +29,41 @@ public class PushedCICache {
 
     public Map<String, String> getCiIdMapping() {
         if(ciIdMapping == null){
-            ciIdMapping = new HashMap<String, String>();
+            ciIdMapping = new HashMap<>();
         }
         return ciIdMapping;
     }
 
     public Map<String, String> getRelationIdMapping() {
         if(relationIdMapping == null){
-            relationIdMapping = new HashMap<String, String>();
+            relationIdMapping = new HashMap<>();
         }
         return relationIdMapping;
     }
 
     public Map<String, Long> getTimestampMap() {
         if(timestampMap == null){
-            timestampMap = new HashMap<String, Long>();
+            timestampMap = new HashMap<>();
         }
         return timestampMap;
     }
 
     public Map<String, String> getIdTypeMap() {
         if(idTypeMap == null){
-            idTypeMap = new HashMap<String, String>();
+            idTypeMap = new HashMap<>();
         }
         return idTypeMap;
     }
 
     public Map<String, Set<String>> getTypeIdMap() {
         if(typeIdMap == null){
-            typeIdMap = new HashMap<String, Set<String>>();
+            typeIdMap = new HashMap<>();
         }
         return typeIdMap;
     }
 
     public void updateCIEntity(CIEntity ciEntity, String targetId, long timestamp) {
-        String existingTargetId = getCiIdMapping().get(ciEntity);
+        String existingTargetId = getCiIdMapping().get(ciEntity.getGlobalId());
         if(existingTargetId != null && !existingTargetId.equals(targetId)){
             log.info("[PushCache]Id change detected. CIId: " + ciEntity.getGlobalId()
             + ". CachedTargetId: " + existingTargetId + ". newTargetId: " + targetId);
@@ -79,10 +77,8 @@ public class PushedCICache {
         }
         getIdTypeMap().put(ciEntity.getGlobalId(), ciEntity.getCiType());
 
-        Set<String> idSet = getTypeIdMap().getOrDefault(ciEntity.getCiType(), new HashSet<String>());
-        if(!idSet.contains(ciEntity.getGlobalId())){
-            idSet.add(ciEntity.getGlobalId());
-        }
+        Set<String> idSet = getTypeIdMap().getOrDefault(ciEntity.getCiType(), new HashSet<>());
+        idSet.add(ciEntity.getGlobalId());
         getTypeIdMap().put(ciEntity.getCiType(), idSet);
 
         getTimestampMap().put(ciEntity.getGlobalId(), timestamp);

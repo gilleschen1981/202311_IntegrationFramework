@@ -3,9 +3,9 @@ package com.opentext.itom.ucmdb.integration.push.repo.model.ci;
 // Relation is also a CIEntity, with globalid
 public class CIRelation extends CIEntity{
     public static final String RELATION_ID_SEPARATOR = "_";
-    private String end1Id;
+    private final String end1Id;
 
-    private String end2Id;
+    private final String end2Id;
 
     public CIRelation(String ciType, String end1Id, String end2Id) {
         super(ciType + RELATION_ID_SEPARATOR + end1Id + RELATION_ID_SEPARATOR + end2Id, ciType);

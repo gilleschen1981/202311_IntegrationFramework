@@ -1,10 +1,12 @@
 package com.opentext.itom.ucmdb.integration.push.repo.model.ci;
 
-import com.opentext.itom.ucmdb.integration.push.framework.PushRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class CIBatch {
     private static final Logger log = LoggerFactory.getLogger(CIBatch.class);
@@ -30,35 +32,35 @@ public class CIBatch {
 
     public Map<String, CIEntity> getCiEntityMap() {
         if(ciEntityMap == null){
-            ciEntityMap = new HashMap<String, CIEntity>();
+            ciEntityMap = new HashMap<>();
         }
         return ciEntityMap;
     }
 
     public Map<String, Set<CIEntity>> getCiTypeMap() {
         if(ciTypeMap == null){
-            ciTypeMap = new HashMap<String, Set<CIEntity>>();
+            ciTypeMap = new HashMap<>();
         }
         return ciTypeMap;
     }
 
     public void addCIEntity(CIEntity ciEntity){
         getCiEntityMap().put(ciEntity.getGlobalId(), ciEntity);
-        Set<CIEntity> entitySet= getCiTypeMap().getOrDefault(ciEntity.getCiType(), new HashSet<CIEntity>());
+        Set<CIEntity> entitySet= getCiTypeMap().getOrDefault(ciEntity.getCiType(), new HashSet<>());
         entitySet.add(ciEntity);
         getCiTypeMap().put(ciEntity.getCiType(), entitySet);
     }
 
     public Map<String, Set<CIRelation>> getChildrenMap() {
         if(childrenMap == null){
-            childrenMap = new HashMap<String, Set<CIRelation>>();
+            childrenMap = new HashMap<>();
         }
         return childrenMap;
     }
 
     public Map<String, Set<CIRelation>> getParentMap() {
         if(parentMap == null){
-            parentMap = new HashMap<String, Set<CIRelation>>();
+            parentMap = new HashMap<>();
         }
         return parentMap;
     }

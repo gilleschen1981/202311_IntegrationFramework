@@ -22,11 +22,11 @@ public class SimpleTopology {
     public static final String CLASSMODEL_ATTRNAME_LAYER = "layer";
     public static final String CLASSMODEL_ATTRNAME_MATCHING_RULE = "matching_rules";
 
-    public static final Set<String> oobAttributes = new HashSet<String>(Arrays.asList(
+    public static final Set<String> oobAttributes = new HashSet<>(Arrays.asList(
             CLASSMODEL_ATTRNAME_GLOBALID, CLASSMODEL_ATTRNAME_CMDBID, CLASSMODEL_ATTRNAME_CLASSTYPE
             ,CLASSMODEL_ATTRNAME_LASTACCESSTIME, CLASSMODEL_ATTRNAME_ROOT_CONTAINER
     ));
-    public static final Set<String> excluteAttributes = new HashSet<String>(Arrays.asList(
+    public static final Set<String> excluteAttributes = new HashSet<>(Arrays.asList(
             CLASSMODEL_ATTRNAME_OWNER_TENANT,CLASSMODEL_ATTRNAME_CONSUMER_TENANT
             ,CLASSMODEL_ATTRNAME_FAMILY_ICON, CLASSMODEL_ATTRNAME_BODY_ICON
             ,CLASSMODEL_ATTRNAME_ACTUAL_DELETION_PERIOD, CLASSMODEL_ATTRNAME_ACTUAL_DELETION_CANDIDATE_PERIOD
@@ -43,9 +43,13 @@ public class SimpleTopology {
         return classname;
     }
 
+    public void setClassname(String classname) {
+        this.classname = classname;
+    }
+
     public Set<String> getAttributes() {
         if(attributes == null){
-            attributes = new HashSet<String>();
+            attributes = new HashSet<>();
         }
         return attributes;
     }
@@ -72,14 +76,10 @@ public class SimpleTopology {
 
     public void loopProcessOObAttributes() {
         for(String attr : oobAttributes){
-            if(!getAttributes().contains(attr)){
-                getAttributes().add(attr);
-            }
+            getAttributes().add(attr);
         }
         for(String attr : excluteAttributes){
-            if(getAttributes().contains(attr)){
-                getAttributes().remove(attr);
-            }
+            getAttributes().remove(attr);
         }
 
         if(getRelated()!= null){

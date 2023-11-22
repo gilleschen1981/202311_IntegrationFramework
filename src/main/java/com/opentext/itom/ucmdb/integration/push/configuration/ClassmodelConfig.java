@@ -9,7 +9,7 @@ public class ClassmodelConfig{
 
 	public List<SimpleTopology> getSimpleTopoList() {
 		if(simpleTopoList == null){
-			simpleTopoList = new ArrayList<SimpleTopology>();
+			simpleTopoList = new ArrayList<>();
 		}
 		return simpleTopoList;
 	}

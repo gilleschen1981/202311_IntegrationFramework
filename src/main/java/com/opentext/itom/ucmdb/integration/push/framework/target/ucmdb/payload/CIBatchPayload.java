@@ -1,9 +1,7 @@
 package com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.payload;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.management.relation.Relation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +14,14 @@ public class CIBatchPayload {
 
     public List<DataInConfigurationItem> getCis() {
         if(cis == null){
-            cis = new ArrayList<DataInConfigurationItem>();
+            cis = new ArrayList<>();
         }
         return cis;
     }
 
     public List<DataInRelation> getRelations() {
         if(relations == null){
-            relations = new ArrayList<DataInRelation>();
+            relations = new ArrayList<>();
         }
         return relations;
     }

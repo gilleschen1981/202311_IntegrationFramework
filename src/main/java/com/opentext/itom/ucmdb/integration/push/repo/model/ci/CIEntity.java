@@ -1,7 +1,6 @@
 package com.opentext.itom.ucmdb.integration.push.repo.model.ci;
 
 import com.opentext.itom.ucmdb.integration.push.configuration.SimpleTopology;
-import com.opentext.itom.ucmdb.integration.push.framework.target.ucmdb.payload.UCMDBRestPayloadConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,15 +9,15 @@ import java.util.Map;
 
 public class CIEntity {
     private static final Logger log = LoggerFactory.getLogger(CIEntity.class);
-    private String globalId;
+    private final String globalId;
 
-    private String ciType;
+    private final String ciType;
 
     private Map<String, String> attributeMap;
 
     public Map<String, String> getAttributeMap() {
         if(attributeMap == null){
-            attributeMap = new HashMap<String, String>();
+            attributeMap = new HashMap<>();
         }
         return attributeMap;
     }

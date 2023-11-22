@@ -66,7 +66,7 @@ public class GraphQLWrapperConverter {
                             continue;
                         } else{
                             boolean addCI = loopJson(childJson, child, currentEntity.getGlobalId(), relationname, rlt, timestamp);
-                            if(addCI == true){
+                            if(addCI){
                                 ciAdded = true;
                             }
                         }
@@ -75,7 +75,7 @@ public class GraphQLWrapperConverter {
             }
         }
         // decide if the ci need to be pushed
-        long ciTimestamp = Long.valueOf(currentEntity.getAttributeMap().get(SimpleTopology.CLASSMODEL_ATTRNAME_LASTACCESSTIME));
+        long ciTimestamp = Long.parseLong(currentEntity.getAttributeMap().get(SimpleTopology.CLASSMODEL_ATTRNAME_LASTACCESSTIME));
         if(!ciAdded && ciTimestamp < timestamp){
             return ciAdded;
         }
@@ -84,10 +84,10 @@ public class GraphQLWrapperConverter {
         rlt.addCIEntity(currentEntity);
         if(parentId != null && parentRelationName != null){
             CIRelation relation = new CIRelation(parentRelationName, parentId, currentEntity.getGlobalId());
-            Set<CIRelation> pRelationSet = rlt.getParentMap().getOrDefault(parentId, new HashSet<CIRelation>());
+            Set<CIRelation> pRelationSet = rlt.getParentMap().getOrDefault(parentId, new HashSet<>());
             pRelationSet.add(relation);
             rlt.getParentMap().put(parentId, pRelationSet);
-            Set<CIRelation> cRelationSet = rlt.getChildrenMap().getOrDefault(currentEntity.getGlobalId(), new HashSet<CIRelation>());
+            Set<CIRelation> cRelationSet = rlt.getChildrenMap().getOrDefault(currentEntity.getGlobalId(), new HashSet<>());
             cRelationSet.add(relation);
             rlt.getChildrenMap().put(currentEntity.getGlobalId(), cRelationSet);
         }
@@ -111,7 +111,7 @@ public class GraphQLWrapperConverter {
                 }
             }
         } else{
-            log.warn("[UCMDB]retrieved ci without globalid: " + jsonNode.toString());
+            log.warn("[UCMDB]retrieved ci without globalid: " + jsonNode);
         }
         return rlt;
     }

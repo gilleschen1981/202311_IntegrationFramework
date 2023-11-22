@@ -24,7 +24,7 @@ public class DataInElement {
 
     public Map<String, String> getProperties() {
         if(properties == null){
-            properties = new HashMap<String, String>();
+            properties = new HashMap<>();
         }
         return properties;
     }

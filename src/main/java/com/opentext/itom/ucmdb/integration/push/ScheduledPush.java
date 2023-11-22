@@ -28,7 +28,7 @@ public class ScheduledPush {
     int scheduledPushCount = 0;
 
     public void scheduleTask() {
-        threadPoolTaskScheduler.scheduleWithFixedDelay(new Runnable() {
+        threadPoolTaskScheduler.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
                 scheduledPushCount ++;
@@ -44,7 +44,7 @@ public class ScheduledPush {
 
                 finishPush();
             }
-        }, Integer.valueOf(appConfig.getPushScheduleInterval()));
+        }, appConfig.getPushScheduleInterval());
     }
 
     public void finishPush() {
@@ -62,7 +62,7 @@ public class ScheduledPush {
                 + ". End time: " + finishTime + ". Total CI: " + pushRepository.getCurrentPushCICount()
                 + ". Total Relation: " + pushRepository.getCurrentPushRelationCount()
                 + ". Rate of CI/millisecond: "
-                + (pushRepository.getCurrentPushCICount() + pushRepository.getCurrentPushRelationCount())*1000/(finishTime - pushRepository.getCurrentPushStartTimestamp()));
+                + (pushRepository.getCurrentPushCICount() + pushRepository.getCurrentPushRelationCount())/((finishTime - pushRepository.getCurrentPushStartTimestamp())/1000));
 
         pushRepository.setLastSuccessPushTimestamp(pushRepository.getCurrentPushStartTimestamp());
         pushRepository.setCurrentPushStartTimestamp(0L);

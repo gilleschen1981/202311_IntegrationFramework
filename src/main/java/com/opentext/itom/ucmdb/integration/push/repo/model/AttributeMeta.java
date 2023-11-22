@@ -5,9 +5,9 @@ import org.slf4j.LoggerFactory;
 
 public class AttributeMeta {
     private static final Logger log = LoggerFactory.getLogger(AttributeMeta.class);
-    private String attrName;
-    private AttributeTypeEnum attrType;
-    private int attrSize;
+    private final String attrName;
+    private final AttributeTypeEnum attrType;
+    private final int attrSize;
 
     public AttributeMeta(String attrName, AttributeTypeEnum attrType, int attrSize) {
         if(attrType == null){

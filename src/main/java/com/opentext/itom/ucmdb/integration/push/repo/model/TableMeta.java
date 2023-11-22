@@ -8,12 +8,12 @@ public class TableMeta {
     public static final String TABLE_SURFIX = "";
     public final static String TABLE_SEPARATOR = "_";
 
-    private String className;
+    private final String className;
     private List<TableColumnMeta> columnList;
 
     public TableMeta(String tableName) {
         this.className = tableName;
-        columnList = new ArrayList<TableColumnMeta>();
+        columnList = new ArrayList<>();
     }
 
     public String getClassName() {
@@ -26,13 +26,13 @@ public class TableMeta {
 
     public List<TableColumnMeta> getColumnList() {
         if(columnList == null){
-            columnList = new ArrayList<TableColumnMeta>();
+            columnList = new ArrayList<>();
         }
         return columnList;
     }
 
     public List<String> getColumnListForTable() {
-        List<String> rlt = new ArrayList<String>();
+        List<String> rlt = new ArrayList<>();
         for(TableColumnMeta columnMeta : getColumnList()){
             rlt.add(ModelConverter.convertColumnMeta2TableType(columnMeta));
         }

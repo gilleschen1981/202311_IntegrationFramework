@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ClassTypeConfiguration {
-    private String type;
+    private final String type;
     private Set<String> attributes;
 
     public ClassTypeConfiguration(String type) {
@@ -17,7 +17,7 @@ public class ClassTypeConfiguration {
 
     public Set<String> getAttributes() {
         if(attributes == null){
-            attributes = new HashSet<String>();
+            attributes = new HashSet<>();
         }
         return attributes;
     }
