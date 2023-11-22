@@ -101,11 +101,9 @@ public class PushInitializer implements ApplicationRunner {
         } else {
             log.info("[Phase 2/3 FirstPush]Previous push context exist, no need of first push.");
             pushRepo.setLastSuccessPushTimestamp(targetMeta.getLastUpdateTimestamp());
-            pushService.setFirstPushFinished(true);
         }
         pushRepo.setTargetMeta(targetMeta);
         log.info("[Phase 2/3 FirstPush]First push finished.");
-        pushService.setFirstPushFinished(true);
     }
 
     private void loopClassConf(SimpleTopology simpleTopology) {
