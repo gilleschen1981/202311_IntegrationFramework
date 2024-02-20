@@ -13,7 +13,7 @@ public class TableColumnMeta {
 
     public TableColumnMeta(String columnName, String columnType, int columnSize) {
         if("VARCHAR".equals(columnType) && columnSize <= 0){
-            log.error("[CONVERT]Missing size information, use default value. AttrName = " + columnName);
+            log.debug("[CONVERT]Missing size information, use default value. AttrName = " + columnName);
             columnSize = 100;
         }
         this.columnName = columnName;

@@ -45,18 +45,20 @@ public class PushRunner implements Runnable{
             int batchCount = elementCount/appConfig.getPushBatchSize() + 1;
             log.info("[PushRunner]Total root element to push: " + elementCount + ". Batch number: " + batchCount);
             for(int i = 0; i < batchCount; i++){
-                log.info("[PushRunner]Push batch number " + (i+1));
+                log.info("[PushRunner]Push batch number " + (i));
                 // update query pagination
-                query.getElement().getPagination().setSkip(i);
+                query.getElement().getPagination().setSkip(i * appConfig.getPushBatchSize());
                 // query ci from ucmdb
                 CIBatch ciBatch = GraphQLWrapperConverter.convertWrapper2CIBatch(graphQLClient.batchQuery(query),simpleTopology, i+1, pushRepository.getLastSuccessPushTimestamp());
+                log.info("[PushRunner]Get " + ciBatch.getBatchStatistics().getRawCICount() + " raw CIs."
+                        + ciBatch.getBatchStatistics().getSkippedCICount() + " CIs ignored by cache. "
+                        + ciBatch.getBatchStatistics().getPushCICount() + " CIs and "
+                        + ciBatch.getBatchStatistics().getPushRelationCount() + " Relations ready for push. "
+                        + ciBatch.getStatisticsString());
+
                 if(ciBatch == null || ciBatch.getCiEntityMap().size() <= 0){
-                    log.info("[PushRunner]Empty batch, batch number: " + (i+1));
                     continue;
                 }
-                log.info("[PushRunner]Get " + ciBatch.getCiEntityMap().size() + " CIs and "
-                        + ciBatch.getChildrenMap().size() + " Relations for push: "
-                        + ciBatch.getStatisticsString());
                 if(log.isDebugEnabled()){
                     // integrity check of cibatch and print log
                     ciBatch.integrityCheck();

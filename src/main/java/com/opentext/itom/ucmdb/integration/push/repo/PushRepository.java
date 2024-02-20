@@ -132,7 +132,7 @@ public class PushRepository {
         for(CIEntity ciEntity : ciBatch.getCiEntityMap().values()){
             String targetId = pushResult.getIdMapping().get(ciEntity.getGlobalId());
             if(targetId == null){
-                log.error("[PushStatus]Unpushed CI exist, CIType: " + ciEntity.getCiType() + ". CIId: " + ciEntity.getGlobalId());
+                log.error("[PushStatus]Unpushed CI exist, Accurate CIType: " + ciEntity.getAccurateType() + ". CIId: " + ciEntity.getGlobalId());
             } else{
                 pushedCICache.updateCIEntity(ciEntity, targetId, getCurrentPushStartTimestamp());
                 ciCount++;

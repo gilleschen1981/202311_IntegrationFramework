@@ -21,7 +21,7 @@ public class ModelConverter {
         }
         for(AttributeMeta attr : meta.getAttributeMetaList()){
             if(attr.getAttrType() == null){
-                log.error("[TABLECONVERT]Null Attribute Type detected in class: " + meta.getClassName());
+                log.debug("[TABLECONVERT]Null Attribute Type detected in class: " + meta.getClassName());
                 continue;
             }
             TableColumnMeta column = new TableColumnMeta(attr.getAttrName(), convertAttrType2ColumnType(attr.getAttrType()), attr.getAttrSize());
@@ -40,7 +40,7 @@ public class ModelConverter {
             case ATTR_TYPE_LIST -> rlt = "VARCHAR";
             case ATTR_TYPE_ENUM -> rlt = "VARCHAR";
             case ATTR_TYPE_STRINGLIST -> rlt = "VARCHAR";
-            default -> {rlt = "other"; log.error("[TABLECONVER]Unrecognized attr type: " + attrType.getText());}
+            default -> {rlt = "other"; log.debug("[TABLECONVER]Unrecognized attr type: " + attrType.getText());}
         }
         return rlt;
     }
@@ -50,7 +50,7 @@ public class ModelConverter {
         switch (columnMeta.getColumnType()){
             case "VARCHAR"-> rlt += columnMeta.getColumnType() + "(" + columnMeta.getColumnSize() + ")";
             case "INTEGER", "BOOLEAN", "DATE" -> rlt += columnMeta.getColumnType();
-            default -> {rlt = ""; log.error("[CONVERT]Unrecognized table column type: " + columnMeta.getColumnType());}
+            default -> {rlt = ""; log.debug("[CONVERT]Unrecognized table column type: " + columnMeta.getColumnType());}
         }
         return rlt;
     }

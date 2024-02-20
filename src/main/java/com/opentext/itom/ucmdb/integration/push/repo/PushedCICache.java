@@ -71,15 +71,15 @@ public class PushedCICache {
         getCiIdMapping().put(ciEntity.getGlobalId(), targetId);
 
         String existingType = getIdTypeMap().get(ciEntity.getGlobalId());
-        if(existingType != null && !existingType.equals(ciEntity.getCiType())){
+        if(existingType != null && !existingType.equals(ciEntity.getAccurateType())){
             log.error("[PushCache]Type change detected. CIId: " + ciEntity.getGlobalId()
-            + ". CachedType: " + existingType + ". newCIType: " + ciEntity.getCiType());
+            + ". CachedType: " + existingType + ". newCIType: " + ciEntity.getAccurateType());
         }
-        getIdTypeMap().put(ciEntity.getGlobalId(), ciEntity.getCiType());
+        getIdTypeMap().put(ciEntity.getGlobalId(), ciEntity.getAccurateType());
 
-        Set<String> idSet = getTypeIdMap().getOrDefault(ciEntity.getCiType(), new HashSet<>());
+        Set<String> idSet = getTypeIdMap().getOrDefault(ciEntity.getAccurateType(), new HashSet<>());
         idSet.add(ciEntity.getGlobalId());
-        getTypeIdMap().put(ciEntity.getCiType(), idSet);
+        getTypeIdMap().put(ciEntity.getAccurateType(), idSet);
 
         getTimestampMap().put(ciEntity.getGlobalId(), timestamp);
         setDirty(true);

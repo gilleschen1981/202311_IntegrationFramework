@@ -659,6 +659,17 @@
         kind: "ci_relation",
       },
     },
+	Nodes: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "node",
+      },
+      relation: {
+        relationName: "containment",
+        kind: "ci_relation",
+      },
+    },
 	BusinessElements: {
       type: "array",
       items: {

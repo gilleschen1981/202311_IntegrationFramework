@@ -21,13 +21,19 @@ public class CIBatch {
     // <globalid, set of CIRelation with end2id == globalid>
     private Map<String, Set<CIRelation>> parentMap;
     int batchCount;
+    CIBatchStatistics batchStatistics;
 
     public CIBatch(int batchCount) {
         this.batchCount = batchCount;
+        batchStatistics = new CIBatchStatistics();
     }
 
     public int getBatchCount() {
         return batchCount;
+    }
+
+    public CIBatchStatistics getBatchStatistics() {
+        return batchStatistics;
     }
 
     public Map<String, CIEntity> getCiEntityMap() {
@@ -49,6 +55,7 @@ public class CIBatch {
         Set<CIEntity> entitySet= getCiTypeMap().getOrDefault(ciEntity.getCiType(), new HashSet<>());
         entitySet.add(ciEntity);
         getCiTypeMap().put(ciEntity.getCiType(), entitySet);
+        getBatchStatistics().incPushCICount();
     }
 
     public Map<String, Set<CIRelation>> getChildrenMap() {
@@ -100,5 +107,15 @@ public class CIBatch {
                 }
             }
         }
+    }
+
+    public void addRelation(CIRelation relation) {
+        Set<CIRelation> pRelationSet = getParentMap().getOrDefault(relation.getEnd1Id(), new HashSet<>());
+        pRelationSet.add(relation);
+        getParentMap().put(relation.getEnd1Id(), pRelationSet);
+        Set<CIRelation> cRelationSet = getChildrenMap().getOrDefault(relation.getEnd2Id(), new HashSet<>());
+        cRelationSet.add(relation);
+        getChildrenMap().put(relation.getEnd2Id(), cRelationSet);
+        getBatchStatistics().incPushRelationCount();
     }
 }

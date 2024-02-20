@@ -51,6 +51,11 @@ public class PushService {
             pushRepository.pushPushQueue(simpleTopology);
         }
         scheduledPush.finishPush();
+        try {
+            Thread.sleep(appConfig.getPushScheduleInterval());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         // start schedule push
         scheduledPush.scheduleTask();
     }

@@ -52,7 +52,7 @@ public class ScheduledPush {
         while(!pushRepository.isPushFinished()){
             log.info("[FinishPush]Wait for first push to finish, size of waiting queue: " + pushRepository.getPushQueueSize());
             try {
-                Thread.sleep(1000 * 60);
+                Thread.sleep(1000 * 5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

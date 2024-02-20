@@ -38,10 +38,6 @@ public class Element {
         isRoot = root;
     }
 
-    public Filter getFilter() {
-        return filter;
-    }
-
     public void setFilter(Filter filter) {
         this.filter = filter;
     }

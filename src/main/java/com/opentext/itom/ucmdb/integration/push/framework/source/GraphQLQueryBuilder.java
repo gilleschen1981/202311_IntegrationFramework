@@ -51,7 +51,7 @@ public class GraphQLQueryBuilder {
 
         // build pagination
         rootElement.setPagination(new Pagination(appConfig.getPushBatchSize(), 0));
-
+        rootElement.setFilter(buildDefaultTimestampFilter());
 
         // build attribute
 

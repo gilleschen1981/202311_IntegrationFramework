@@ -63,7 +63,7 @@ public class PushUCMDBClient implements PushClient {
                 log.debug("[PushRunner]Unpushed CI list: \n");
                 for(String id : rlt.getUnPushedIdSet()){
                     CIEntity ciEntity = ciBatch.getCiEntityMap().get(id);
-                    log.debug(id + "\t" + ciEntity.getCiType() + "\t");
+                    log.debug(id + "\t" + ciEntity.getAccurateType() + "\t");
                 }
             }
 

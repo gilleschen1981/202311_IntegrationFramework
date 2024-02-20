@@ -51,11 +51,12 @@ public class GraphQLWrapperConverter {
     // return true: There are CI added
     // return false: No CI added.
     private static boolean loopJson(JsonNode jsonNode, SimpleTopology simpleTopology, String parentId, String parentRelationName, CIBatch rlt, long timestamp) {
-        boolean ciAdded = false;
+        boolean isCIAdded = false;
         CIEntity currentEntity = buildCIFromJsonNode(jsonNode, simpleTopology);
         if(currentEntity == null){
-            return ciAdded;
+            return false;
         }
+        rlt.getBatchStatistics().incRawCICount();
         // first process all chidren ci
         if(simpleTopology.getRelated() != null){
             for(String relationname : simpleTopology.getRelated().keySet()){
@@ -63,11 +64,9 @@ public class GraphQLWrapperConverter {
                     for(JsonNode childJson : jsonNode.get(classNameMappingUtil.getGraphQLInnerClassName(child.getClassname()))){
                         if(childJson == null || childJson.size() <= 0){
                             log.debug("[UCMDB]The CI has no subelement, CI id:  " + currentEntity.getGlobalId() + ". SubElementType: " + child.getClassname() );
-                            continue;
                         } else{
-                            boolean addCI = loopJson(childJson, child, currentEntity.getGlobalId(), relationname, rlt, timestamp);
-                            if(addCI){
-                                ciAdded = true;
+                           if(loopJson(childJson, child, currentEntity.getGlobalId(), relationname, rlt, timestamp)){
+                                isCIAdded = true;
                             }
                         }
                     }
@@ -76,22 +75,18 @@ public class GraphQLWrapperConverter {
         }
         // decide if the ci need to be pushed
         long ciTimestamp = Long.parseLong(currentEntity.getAttributeMap().get(SimpleTopology.CLASSMODEL_ATTRNAME_LASTACCESSTIME));
-        if(!ciAdded && ciTimestamp < timestamp){
-            return ciAdded;
+        if(!isCIAdded && ciTimestamp < timestamp){
+            rlt.getBatchStatistics().incSkippedCICount();
+            return isCIAdded;
         }
-        ciAdded = true;
+        isCIAdded = true;
         // add ci
         rlt.addCIEntity(currentEntity);
         if(parentId != null && parentRelationName != null){
             CIRelation relation = new CIRelation(parentRelationName, parentId, currentEntity.getGlobalId());
-            Set<CIRelation> pRelationSet = rlt.getParentMap().getOrDefault(parentId, new HashSet<>());
-            pRelationSet.add(relation);
-            rlt.getParentMap().put(parentId, pRelationSet);
-            Set<CIRelation> cRelationSet = rlt.getChildrenMap().getOrDefault(currentEntity.getGlobalId(), new HashSet<>());
-            cRelationSet.add(relation);
-            rlt.getChildrenMap().put(currentEntity.getGlobalId(), cRelationSet);
+            rlt.addRelation(relation);
         }
-        return ciAdded;
+        return isCIAdded;
     }
 
     private static CIEntity buildCIFromJsonNode(JsonNode jsonNode, SimpleTopology simpleTopology) {

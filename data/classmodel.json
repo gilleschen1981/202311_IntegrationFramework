@@ -6,20 +6,7 @@
       ],
       "related": {
         "containment": [{
-            "classname": "business_element",
-            "attributes": [
-              "all"
-            ]
-        }]
-      }
-    },
-    { "classname": "business_element",
-      "attributes": [
-        "all"
-      ],
-      "related": {
-        "containment": [{
-          "classname": "infrastructure_element",
+          "classname": "business_element",
           "attributes": [
             "all"
           ]
@@ -39,10 +26,10 @@
         }],
         "composition": [
           {
-          "classname": "interface",
-          "attributes": [
-            "all"
-          ]
+            "classname": "interface",
+            "attributes": [
+              "all"
+            ]
           },
           {
             "classname": "cpu",
@@ -188,6 +175,19 @@
             }
           }
         ]
+      }
+    },
+    { "classname": "business_element",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "containment": [{
+          "classname": "node",
+          "attributes": [
+            "all"
+          ]
+        }]
       }
     },
     { "classname": "webservice",
