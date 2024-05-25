@@ -14,6 +14,9 @@ public class PushResult {
         this.startTime = startTime;
         this.finishTime = finishTime;
     }
+    public PushResult(long startTime) {
+        this.startTime = startTime;
+    }
 
     public Map<String, String> getIdMapping() {
         if(idMapping == null){

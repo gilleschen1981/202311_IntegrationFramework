@@ -6,6 +6,7 @@ import java.util.Map;
 public class TargetMeta {
     private long lastUpdateTimestamp;
 
+    // <classname, tableMeta>
     private Map<String, TableMeta> targetTableMetaMap;
 
     public long getLastUpdateTimestamp() {

@@ -1,4 +1,4 @@
-package com.opentext.itom.ucmdb.integration.push.framework.target;
+package com.opentext.itom.ucmdb.integration.push.framework.target.vertica;
 
 import com.opentext.itom.ucmdb.integration.push.framework.PushResult;
 import com.opentext.itom.ucmdb.integration.push.repo.model.TableMeta;
@@ -7,14 +7,14 @@ import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIBatch;
 
 import java.util.Map;
 
-public interface PushClient {
+public interface VerticaConnector {
     boolean testConnection();
 
-    TargetMeta loadTargetMeta();
+    TargetMeta loadMetadata();
 
     TargetMeta initTargetSystem(Map<String, TableMeta> tableMetaMap);
 
-    PushResult pushBatch(CIBatch ciBatch);
+    PushResult batchInsert(CIBatch ciBatch);
 
     void updateFinishTime(long finishTime);
 }

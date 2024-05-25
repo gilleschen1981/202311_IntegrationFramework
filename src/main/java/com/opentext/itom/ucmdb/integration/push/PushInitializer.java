@@ -92,17 +92,24 @@ public class PushInitializer implements ApplicationRunner {
         log.info("[Phase 1/3 Init]Init finished");
         log.info("[Phase 2/3 FirstPush]Start first push.");
         // load target system cache
-        TargetMeta targetMeta = pushClient.loadTargetMeta();
+        TargetMeta targetMeta = null;
+        try{
+            targetMeta = pushClient.loadTargetMeta();
+            pushRepo.setTargetMeta(targetMeta);
+        }catch (Exception e){
+            log.info("[Phase 2/3 FirstPush]No metadata found in target system. Do the push from scratch.");
+        }
         if(targetMeta == null){
             // init target system if first time
             targetMeta = pushClient.initTargetSystem(ModelConverter.convertClassMetaMap2TableMetaMap(pushRepo.getClassTypeMetaMap()));
+            pushRepo.setTargetMeta(targetMeta);
             // start the first push
             pushService.firstPush();
         } else {
             log.info("[Phase 2/3 FirstPush]Previous push context exist, no need of first push.");
             pushRepo.setLastSuccessPushTimestamp(targetMeta.getLastUpdateTimestamp());
+            pushService.scheduledPush.scheduleTask();
         }
-        pushRepo.setTargetMeta(targetMeta);
         log.info("[Phase 2/3 FirstPush]First push finished.");
     }
 

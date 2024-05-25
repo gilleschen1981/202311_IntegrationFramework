@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.opentext.itom.ucmdb.integration.push.framework.target.vertica.mapper.MetaDataMapper">
+    <resultMap id="metadataMap" type="com.opentext.itom.ucmdb.integration.push.framework.target.vertica.mapper.MetaDataPOJO">
+        <id property="key" column="key"/>
+        <result property="value" column="value"/>
+    </resultMap>
+
+    <update id="createTable">
+        CREATE TABLE IF NOT EXISTS meta_data(
+            key VARCHAR(50) PRIMARY KEY,
+            value VARBINARY(10000)
+        );
+    </update>
+    <update id="dropTableIfExist">
+        DROP TABLE IF EXISTS meta_data;
+    </update>
+
+    <select id="checkExist" resultType="boolean">
+        SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END AS record_exists
+        FROM meta_data
+        WHERE key = #{key}
+    </select>
+    <select id="getAll" resultMap="metadataMap">
+        SELECT * FROM meta_data;
+    </select>
+
+    <insert id="insertMetaData" parameterType="map">
+        INSERT INTO meta_data(key, value)
+        VALUES(#{key}, #{value})
+    </insert>
+
+    <update id="updateMetaData" parameterType="map">
+        UPDATE meta_data
+        SET value = #{value}
+        WHERE key = #{key}
+    </update>
+
+</mapper>

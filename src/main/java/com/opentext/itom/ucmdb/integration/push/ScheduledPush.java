@@ -64,8 +64,7 @@ public class ScheduledPush {
                 + ". Rate of CI/millisecond: "
                 + (pushRepository.getCurrentPushCICount() + pushRepository.getCurrentPushRelationCount())/((finishTime - pushRepository.getCurrentPushStartTimestamp())/1000));
 
-        pushRepository.setLastSuccessPushTimestamp(pushRepository.getCurrentPushStartTimestamp());
-        pushRepository.setCurrentPushStartTimestamp(0L);
+        pushRepository.updateMetaDataFinishTime();
         cacheService.storeCICache();
     }
 

@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.opentext.itom.ucmdb.integration.push.framework.target.vertica.mapper.CIMapper">
+    <insert id="insertCI" statementType="CALLABLE">
+        INSERT INTO ${tableName}
+        <foreach open="(" close=")" collection="item" index="key" separator=",">
+            <trim>${key}</trim>
+        </foreach>
+        VALUES
+        <foreach open="(" close=")" collection="item" item="value" separator=",">
+            <trim>#{value}</trim>
+        </foreach>
+    </insert>
+
+    <update id = "createNewTable" statementType="STATEMENT">
+        CREATE TABLE IF NOT EXISTS ${tableName} (
+        <foreach collection="columns" item="item" index="index" separator=",">${item}</foreach>
+        );
+    </update>
+
+    <select id = "countTable" resultType="int">
+        select count(distinct(table_name)) from v_catalog.tables where table_name = #{tableName};
+    </select>
+
+    <update id = "truncateTable">
+        truncate table ${tableName};
+    </update>
+
+    <update id = "deleteTable">
+        drop table ${tableName};
+    </update>
+
+    <select id="ciExist" resultType="boolean">
+        SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END AS record_exists
+        FROM ${tableName}
+        WHERE global_id = #{global_id} AND root_lastaccesstime = #{last_access_time}
+    </select>
+
+</mapper>

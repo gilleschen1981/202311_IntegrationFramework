@@ -12,13 +12,18 @@ import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Component
-@Primary
+@ConditionalOnProperty(
+        value = "push.target.type",
+        havingValue = "UCMDB",
+        matchIfMissing = true
+)
 public class PushUCMDBClient implements PushClient {
     private static final Logger log = LoggerFactory.getLogger(PushUCMDBClient.class);
     @Autowired
@@ -73,6 +78,11 @@ public class PushUCMDBClient implements PushClient {
         }
 
         return rlt;
+    }
+
+    @Override
+    public void updateFinishTime(long finishTime) {
+
     }
 
 

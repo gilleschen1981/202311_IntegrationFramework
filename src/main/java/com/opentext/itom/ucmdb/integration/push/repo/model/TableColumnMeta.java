@@ -3,7 +3,9 @@ package com.opentext.itom.ucmdb.integration.push.repo.model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TableColumnMeta {
+import java.io.Serializable;
+
+public class TableColumnMeta implements Serializable {
     private static final Logger log = LoggerFactory.getLogger(TableColumnMeta.class);
     public static final String RELATION_TABLE_ENDA_COLUMNNAME = "end1";
     public static final String RELATION_TABLE_ENDB_COLUMNNAME = "end2";
