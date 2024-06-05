@@ -713,6 +713,17 @@
         kind: "ci_relation",
       },
     },
+     IpAddresses: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "ip_address",
+      },
+      relation: {
+        relationName: "membership",
+        kind: "ci_relation",
+      },
+    },
     monitor_state: {
       type: "string",
       description: "Monitor State of a CI in OpsB. The attribute is owned by OpsB exclusively.",

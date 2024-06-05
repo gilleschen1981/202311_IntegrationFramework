@@ -6,10 +6,7 @@ import com.opentext.itom.ucmdb.integration.push.configuration.ClassmodelConfigRe
 import com.opentext.itom.ucmdb.integration.push.configuration.SimpleTopology;
 import com.opentext.itom.ucmdb.integration.push.framework.target.PushClient;
 import com.opentext.itom.ucmdb.integration.push.repo.PushRepository;
-import com.opentext.itom.ucmdb.integration.push.repo.model.ClassModelWrappeConverter;
-import com.opentext.itom.ucmdb.integration.push.repo.model.ClassTypeMeta;
-import com.opentext.itom.ucmdb.integration.push.repo.model.ModelConverter;
-import com.opentext.itom.ucmdb.integration.push.repo.model.TargetMeta;
+import com.opentext.itom.ucmdb.integration.push.repo.model.*;
 import com.opentext.itom.ucmdb.integration.push.repo.pesistence.CICachePersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

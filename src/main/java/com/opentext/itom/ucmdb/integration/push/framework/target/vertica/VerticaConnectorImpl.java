@@ -12,6 +12,7 @@ import com.opentext.itom.ucmdb.integration.push.repo.model.TableMeta;
 import com.opentext.itom.ucmdb.integration.push.repo.model.TargetMeta;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIBatch;
 import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIEntity;
+import com.opentext.itom.ucmdb.integration.push.repo.model.ci.CIRelation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -104,6 +105,10 @@ public class VerticaConnectorImpl implements VerticaConnector{
             ciMapper.createNewTable(tableMeta.getTableName(), tableMeta.getColumnListForTable());
             rlt.getTargetTableMetaMap().put(tableMeta.getClassName(), tableMeta);
         }
+        TableMeta relationMeta = TableMeta.createRelationTableMeta();
+        ciMapper.createNewTable(relationMeta.getTableName(), relationMeta.getColumnListForTable());
+        rlt.getTargetTableMetaMap().put(relationMeta.getClassName(), relationMeta);
+
         rlt.setLastUpdateTimestamp(System.currentTimeMillis());
 
         // init metadata table
@@ -157,7 +162,7 @@ public class VerticaConnectorImpl implements VerticaConnector{
                 throw new RuntimeException(e);
             }
         }
-        this.tableMetaMap = tableMetaMap;
+        this.tableMetaMap = rlt.getTargetTableMetaMap();
         return rlt;
     }
 
@@ -192,6 +197,42 @@ public class VerticaConnectorImpl implements VerticaConnector{
                     rlt.getUnPushedIdSet().add(global_id);
                 }
 
+            }
+        }
+
+        // insert relationship
+        TableMeta relationTableMeta = getTableMetaMap().get(TableMeta.TABLE_RELATION);
+        if(relationTableMeta != null){
+            for(String parentId : ciBatch.getParentMap().keySet()){
+                for(CIRelation relation : ciBatch.getParentMap().get(parentId)){
+                    String global_id = relation.getGlobalId();
+                    try{
+                        CIEntity parentCI = ciBatch.getCiEntityMap().get(parentId);
+                        CIEntity childCI = ciBatch.getCiEntityMap().get(relation.getEnd2Id());
+                        if(parentCI == null || childCI == null){
+                            continue;
+                        }
+                        if(ciMapper.relationExist(relationTableMeta.getTableName(), relation.getEnd1Id(), relation.getEnd2Id(), relation.getCiType())){
+                            continue;
+                        }
+                        Map<String, String> valueMap = new HashMap<>();
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ID_COLUMNNAME, relation.getGlobalId());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_TYPE_COLUMNNAME, relation.getCiType());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ENDA_COLUMNNAME, parentCI.getGlobalId());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ENDB_COLUMNNAME, childCI.getGlobalId());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ENDATYPE_COLUMNNAME, parentCI.getCiType());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ENDBTYPE_COLUMNNAME, childCI.getCiType());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ENDA_ACTUALTYPE_COLUMNNAME, parentCI.getAccurateType());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_ENDB_ACTUALTYPE_COLUMNNAME, childCI.getAccurateType());
+                        valueMap.put(TableColumnMeta.RELATION_TABLE_LASTACCESSTIME_COLUMNNAME, ModelConverter.convertColumnValueByType("DATETIME", String.valueOf(System.currentTimeMillis())));
+                        ciMapper.insertCI(relationTableMeta.getTableName(), valueMap);
+                        rlt.getIdMapping().put(relation.getGlobalId(), global_id);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        rlt.getFailureList().add(global_id);
+                        rlt.getUnPushedIdSet().add(global_id);
+                    }
+                }
             }
         }
 

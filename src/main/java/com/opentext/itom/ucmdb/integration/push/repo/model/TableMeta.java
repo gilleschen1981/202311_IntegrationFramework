@@ -1,10 +1,7 @@
 package com.opentext.itom.ucmdb.integration.push.repo.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class TableMeta implements Serializable {
     public static final String TABLE_PREFIX = "cmdb_";
@@ -12,6 +9,8 @@ public class TableMeta implements Serializable {
     public final static String TABLE_SEPARATOR = "_";
     public final static String ATTRIBUTE_GLOBAL_ID = "global_id";
     public final static String ATTRIBUTE_LAST_ACCESS_TIME = "root_lastaccesstime";
+    public final static String TABLE_RELATION = "relation";
+
     public final static List<TableColumnMeta> MUST_COLUMNS= new ArrayList<TableColumnMeta>() {{
         add(new TableColumnMeta(ATTRIBUTE_GLOBAL_ID, "VARCHAR", 32));
         add(new TableColumnMeta(ATTRIBUTE_LAST_ACCESS_TIME, "DATETIME", 0));
@@ -63,4 +62,16 @@ public class TableMeta implements Serializable {
         }
         return null;
     }
+
+    public static TableMeta createRelationTableMeta() {
+        TableMeta rlt = new TableMeta(TABLE_RELATION);
+        for(String relationColumn : TableColumnMeta.relationColumnList){
+            TableColumnMeta column  = new TableColumnMeta(relationColumn, "VARCHAR", 100);
+            rlt.getColumns().add(column);
+        }
+        TableColumnMeta column  = new TableColumnMeta(TableColumnMeta.RELATION_TABLE_LASTACCESSTIME_COLUMNNAME, "DATETIME", 50);
+        rlt.getColumns().add(column);
+        return rlt;
+    }
+
 }

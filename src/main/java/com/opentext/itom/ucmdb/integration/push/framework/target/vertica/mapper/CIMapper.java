@@ -20,4 +20,6 @@ public interface CIMapper {
     void insertCI(@Param("tableName") String tableName, @Param("item")Map<String, String> valueMap);
 
     boolean ciExist(@Param("tableName") String tableName, @Param("global_id")String globalId, @Param("last_access_time")String lastAccessTime);
+
+    boolean relationExist(@Param("tableName") String tableName, @Param("end1") String end1Id, @Param("end2") String end2Id, @Param("type") String ciType);
 }

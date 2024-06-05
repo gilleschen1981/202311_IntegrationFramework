@@ -841,6 +841,17 @@
         kind: "ci_relation",
       },
     },
+	RunningSoftwares: {
+      type: "array",
+      items: {
+        type: "object",
+        reference: "running_software",
+      },
+      relation: {
+        relationName: "consumer_provider",
+        kind: "ci_relation",
+      },
+    },
 	ApplicationResources: {
       type: "array",
       items: {

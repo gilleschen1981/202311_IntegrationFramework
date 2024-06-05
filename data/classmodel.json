@@ -278,7 +278,42 @@
               }
             ]
           }
-        }]
+        },
+          {
+            "classname": "ip_address",
+            "attributes": [
+              "all"
+            ]
+          }]
+      }
+    },
+    { "classname": "node",
+      "attributes": [
+        "all"
+      ],
+      "related": {
+        "composition": [
+          {
+            "classname": "running_software",
+            "attributes": [
+              "all"
+            ],
+            "related": {
+              "client_server": [{
+                "classname": "ip_service_endpoint",
+                "attributes": [
+                  "all"
+                ]
+              }],
+              "consumer_provider": [{
+                "classname": "running_software",
+                "attributes": [
+                  "all"
+                ]
+              }]
+            }
+          }
+        ]
       }
     }
   ]

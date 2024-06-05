@@ -36,4 +36,10 @@
         WHERE global_id = #{global_id} AND root_lastaccesstime = #{last_access_time}
     </select>
 
+    <select id="relationExist" resultType="boolean">
+        SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END AS record_exists
+        FROM ${tableName}
+        WHERE end1 = #{end1} AND end2 = #{type} AND end2 = #{type}
+    </select>
+
 </mapper>
